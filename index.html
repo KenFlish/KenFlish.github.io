@@ -1,19 +1,558 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bio-Ken Flish</title>
-    <h1>
-        Bio-Ken Flish
-    </h1>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Государственный Архив Кендрессии | AmethystSMP</title>
+    <style>
+        /* ЦВЕТОВАЯ ПАЛИТРА */
+        :root {
+            --main-pink: #FF69B4;
+            --light-pink: #FFB6C1;
+            --white: #FFFFFF;
+            --dark-text: #333333;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            background: var(--white);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        /* ЗАКРЕПЛЕННОЕ ПРЕДУПРЕЖДЕНИЕ */
+        .warning-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--main-pink);
+            color: var(--white);
+            padding: 10px 0;
+            text-align: center;
+            font-size: 12px;
+            z-index: 1000;
+            border-bottom: 2px solid var(--light-pink);
+        }
+
+        /* ОСНОВНОЙ КОНТЕНТ С ОТСТУПОМ ДЛЯ ЗАКРЕПЛЕННОГО БАННЕРА */
+        .main-content {
+            margin-top: 50px;
+        }
+
+        /* ИНФОРМАЦИЯ О СЕРВЕРЕ */
+        .server-info {
+            background: var(--light-pink);
+            padding: 25px;
+            text-align: center;
+            border-bottom: 3px solid var(--main-pink);
+        }
+
+        .server-link {
+            display: inline-block;
+            background: var(--main-pink);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 15px;
+            font-weight: bold;
+        }
+
+        /* ШАПКА */
+        .header {
+            background: var(--white);
+            color: var(--dark-text);
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 3px solid var(--main-pink);
+        }
+
+        .page-title {
+            font-size: 2.5em;
+            margin: 0;
+            color: var(--main-pink);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin: 15px 0;
+        }
+
+        /* НАВИГАЦИЯ */
+        .nav {
+            background: var(--white);
+            padding: 0;
+            border-bottom: 2px solid var(--main-pink);
+        }
+
+        .nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav li {
+            margin: 0;
+        }
+
+        .nav a {
+            color: var(--dark-text);
+            text-decoration: none;
+            padding: 20px 30px;
+            display: block;
+            font-weight: bold;
+            border-right: 1px solid var(--light-pink);
+            transition: background 0.3s;
+        }
+
+        .nav a:hover {
+            background: var(--light-pink);
+        }
+
+        /* ОСНОВНОЙ КОНТЕНТ */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* СЕКЦИИ */
+        .section {
+            margin: 50px 0;
+            padding: 30px;
+            background: var(--white);
+            border: 2px solid var(--main-pink);
+            border-radius: 8px;
+        }
+
+        .section-title {
+            color: var(--main-pink);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        /* КАРУСЕЛЬ НОВОСТЕЙ */
+        .news-container {
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+            position: relative;
+            border: 3px solid var(--main-pink);
+            border-radius: 12px;
+            background: var(--light-pink);
+        }
+
+        .news-carousel {
+            display: flex;
+            gap: 25px;
+            padding: 30px;
+            height: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            align-items: center;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+
+        .news-carousel::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
+        }
+
+        .news-slide {
+            min-width: 380px;
+            height: 350px;
+            background: var(--white);
+            border: 2px solid var(--main-pink);
+            border-radius: 12px;
+            padding: 0;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(255, 105, 180, 0.2);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .news-slide:hover {
+            transform: scale(1.05);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .news-content {
+            padding: 20px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .news-date {
+            color: var(--main-pink);
+            font-weight: bold;
+            font-size: 1em;
+            margin-bottom: 8px;
+        }
+
+        .news-title {
+            color: var(--dark-text);
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            font-weight: bold;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .news-text {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.4;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        /* ЛИДЕР */
+        .leader-section {
+            text-align: center;
+        }
+
+        .leader-image {
+            max-width: 300px;
+            max-height: 400px;
+            border: 3px solid var(--main-pink);
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        /* АРХИВ */
+        .person-card {
+            background: var(--white);
+            border: 1px solid var(--main-pink);
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .status {
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .status-wanted {
+            background: var(--main-pink);
+            color: white;
+        }
+
+        .status-imprisoned {
+            background: #666;
+            color: white;
+        }
+
+        .category {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            margin-right: 10px;
+            background: var(--light-pink);
+            color: var(--dark-text);
+            border: 1px solid var(--main-pink);
+        }
+
+        /* ЗАКОНЫ */
+        .law-item {
+            margin: 20px 0;
+            padding: 15px;
+            background: var(--light-pink);
+            border-radius: 5px;
+            border-left: 4px solid var(--main-pink);
+        }
+
+        /* ИНФОРМАЦИЯ */
+        .info-section {
+            background: var(--light-pink);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        /* ФУТЕР */
+        footer {
+            background: var(--main-pink);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        .signature {
+            font-family: 'Georgia', serif;
+            font-size: 1.3em;
+            margin: 15px 0;
+        }
+    </style>
 </head>
 <body>
- <p>
-     <b>Я Кен! Кен Флиш или же Фетя Барабуля</b>
-     <img src=fete.jpg" 
- </p>
+<!-- ЗАКРЕПЛЕННОЕ ПРЕДУПРЕЖДЕНИЕ -->
+<div class="warning-banner">
+    ⚠ Игровой проект сервера AmethystSMP не связан с реальной жизнью и не имеет цели кого-либо оскорбить.
+    Все персонажи и события вымышлены.
+</div>
+
+<!-- ОСНОВНОЙ КОНТЕНТ -->
+<div class="main-content">
+    <!-- ИНФОРМАЦИЯ О СЕРВЕРЕ -->
+    <div class="server-info">
+        <img src="images/amethyst-logo.png" alt="AmethystSMP" style="height: 60px; margin-bottom: 15px;">
+        <h3>Проект сервера AmethystSMP</h3>
+        <p>Лучший майнкрафт сервер с системой государств</p>
+        <a href="https://t.me/AmethystSMPChannel" class="server-link">Подключиться к серверу</a>
+    </div>
+
+    <!-- ШАПКА -->
+    <header class="header">
+        <h1 class="page-title">Государственный Архив и Реестр Кендрессии</h1>
+        <p class="subtitle">Официальная база данных и законодательная система</p>
+    </header>
+
+    <!-- НАВИГАЦИЯ -->
+    <nav class="nav">
+        <ul>
+            <li><a href="#news">НОВОСТИ</a></li>
+            <li><a href="#information">ИНФОРМАЦИЯ</a></li>
+            <li><a href="#leader">ЛИДЕР</a></li>
+            <li><a href="#archive">АРХИВ</a></li>
+            <li><a href="#laws">ЗАКОНЫ</a></li>
+            <li><a href="#server">СЕРВЕР</a></li>
+        </ul>
+    </nav>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <div class="container">
+        <!-- НОВОСТИ -->
+        <section id="news" class="section">
+            <h2 class="section-title">НОВОСТИ</h2>
+
+            <div class="news-container" id="newsContainer">
+                <div class="news-carousel" id="newsCarousel">
+                    <!-- Новости будут добавлены через JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Остальные секции остаются без изменений -->
+        <!-- ИНФОРМАЦИЯ -->
+        <section id="information" class="section">
+            <h2 class="section-title">ИНФОРМАЦИЯ</h2>
+            <div class="info-section">
+                <h3>О Государстве Кендрессия</h3>
+                <p>Кендрессия - государство, существующее в рамках игрового сервера AmethystSMP.
+                    Государство было основано Великим Правителем Кен Флишем.</p>
+
+                <h3>Цели и задачи</h3>
+                <p>• Создание стабильного игрового сообщества</p>
+                <p>• Развитие экономики и инфраструктуры</p>
+                <p>• Поддержание порядка и справедливости</p>
+            </div>
+        </section>
+
+        <!-- ЛИДЕР -->
+        <section id="leader" class="section">
+            <h2 class="section-title">ЛИДЕР</h2>
+            <div class="leader-section">
+                <img src="images/ken-poster.png" alt="Лидер государства Кен" class="leader-image">
+                <p><strong>Кен</strong></p>
+                <p>Великий Правитель, Отец, Основоположник и руководитель Великого Государства Кендрессии</p>
+            </div>
+        </section>
+
+        <!-- АРХИВ -->
+        <section id="archive" class="section">
+            <h2 class="section-title">АРХИВ</h2>
+
+            <div class="person-card">
+                <span class="category">Иностранный агент</span>
+                <span class="status status-wanted">В розыске</span>
+                <h3>❗️Shnaps❗️</h3>
+                <p><strong>Причина:</strong> Многочисленные оскорбления и нарушения правил</p>
+                <p><strong>Статус:</strong> Объявлен в розыск</p>
+                <p><strong>Дата внесения:</strong> Не зафиксирована</p>
+            </div>
+
+            <!-- Остальные карточки архива... -->
+        </section>
+
+        <!-- ЗАКОНЫ -->
+        <section id="laws" class="section">
+            <h2 class="section-title">ЗАКОНЫ</h2>
+
+            <div class="law-item">
+                <h3>Закон №1: Форма правления</h3>
+                <p>Самый главный и первый человек в Кендрессии — её Царь и Правитель Кен Флиш. Его указы, запреты и законы являются первоочередными во всём государстве.</p>
+            </div>
+
+            <div class="law-item">
+                <h3>Закон №1.2: О гражданских обязанностях</h3>
+                <p>Каждый гражданин должен уважать и чтить Великого Правителя, слушаться его и повиноваться.</p>
+            </div>
+
+            <div class="law-item">
+                <h3>Закон №1.3: Свобода слова</h3>
+                <p>Критика, оскорбление и нанесение ран и телесных повреждений наказуемо и считается предательством родины.</p>
+            </div>
+
+            <div class="law-item">
+                <h3>Закон №2: Граница</h3>
+                <p>- Территория закрыта для перемещения. Посещение территории должно быть согласовано с правителем государства. При нахождении на ней мы имеем право вас убить.<br>
+                    - Проплывание в территориальных водах запрещено! Они отмечены на карте.<br>
+                    - Воздушное пространство над государством закрыто.<br>
+                    - Строительство вокруг государства запрещено.</p>
+            </div>
+        </section>
+
+        <!-- СЕРВЕР -->
+        <section id="server" class="section">
+            <h2 class="section-title">СЕРВЕР</h2>
+            <div style="text-align: center;">
+                <img src="images/amethyst-logo.jpg" alt="AmethystSMP" style="height: 80px; margin-bottom: 20px;">
+                <h3>AmethystSMP</h3>
+                <p>ЛУЧШИЙ майнкрафт сервер с уникальной системой государств и экономикой</p>
+                <p>Присоединяйтесь к нашему сообществу и играйте в большом мире, городов, игроков и хайпа!</p>
+                <a href="https://t.me/AmethystSMPChannel" class="server-link">Присоединиться к AmethystSMP</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- ФУТЕР -->
+    <footer>
+        <p>© 2025 Государство Кендрессии | Проект сервера AmethystSMP</p>
+        <div class="signature">Кен</div>
+        <p style="font-size: 12px; margin-top: 15px;">
+            Игровой проект. Все события и персонажи вымышлены.
+        </p>
+    </footer>
+</div>
+
+<script>
+    // Данные новостей
+    const newsData = [
+        {
+            image: "images/ken-news.jpg",
+            date: "С момента основания",
+            title: "Великий Правитель Кен",
+            text: "Основатель и бессменный лидер Кендрессии. Под его руководством государство достигло невиданного процветания и мощи."
+        },
+        {
+            image: "images/terror-attack.jpg",
+            date: "27.10.2025",
+            title: "Теракт на центральной площади",
+            text: "Взрыв на центральной площади столицы. Усилены меры безопасности по всему государству. Великий Правитель пообещал найти виновных."
+        },
+        {
+            image: "images/law-border.jpg",
+            date: "25.10.2025",
+            title: "Новый закон о границах",
+            text: "Принят Закон №2, ужесточающий контроль за государственными границами. Любое несанкционированное проникновение карается по всей строгости закона."
+        },
+        {
+            image: "images/patriotism.jpg",
+            date: "20.10.2025",
+            title: "Месячник патриотизма",
+            text: "В честь годовщины основания Кендрессии объявлен месячник патриотизма. Граждане, проявившие особую преданность, будут награждены лично Великим Правителем."
+        },
+        {
+            image: "images/army.jpg",
+            date: "15.10.2025",
+            title: "Усиление армии",
+            text: "По указу Великого Правителя начато перевооружение армии. Новое оружие поступит на вооружение в ближайшие дни для защиты границ государства."
+        },
+        {
+            image: "images/palace.jpg",
+            date: "10.10.2025",
+            title: "Строительство дворца",
+            text: "Начато строительство нового королевского дворца. Проект станет символом мощи и величия Кендрессии, демонстрируя силу нашего государства."
+        }
+    ];
+
+    // Создаем карусель с дублированием элементов для бесконечной прокрутки
+    function createInfiniteCarousel() {
+        const carousel = document.getElementById('newsCarousel');
+
+        // Добавляем элементы 3 раза для создания эффекта бесконечности
+        for (let i = 0; i < 3; i++) {
+            newsData.forEach(news => {
+                const slide = document.createElement('div');
+                slide.className = 'news-slide';
+                slide.innerHTML = `
+                    <img src="${news.image}" alt="${news.title}" class="news-image">
+                    <div class="news-content">
+                        <div class="news-date">${news.date}</div>
+                        <div class="news-title">${news.title}</div>
+                        <div class="news-text">${news.text}</div>
+                    </div>
+                `;
+                carousel.appendChild(slide);
+            });
+        }
+    }
+
+    // Захват колесика мыши для горизонтальной прокрутки
+    function setupMouseWheelScroll() {
+        const carousel = document.getElementById('newsCarousel');
+        const container = document.getElementById('newsContainer');
+
+        container.addEventListener('wheel', (e) => {
+            if (e.deltaY !== 0) {
+                e.preventDefault();
+                carousel.scrollLeft += e.deltaY;
+            }
+        });
+
+        // Автоматическая прокрутка к началу при достижении конца
+        carousel.addEventListener('scroll', () => {
+            const scrollWidth = carousel.scrollWidth;
+            const clientWidth = carousel.clientWidth;
+            const scrollLeft = carousel.scrollLeft;
+
+            // Если прокрутили до конца второй копии, переходим к началу первой копии
+            if (scrollLeft >= scrollWidth - clientWidth * 2) {
+                carousel.scrollLeft = scrollWidth / 3;
+            }
+            // Если прокрутили назад до начала первой копии, переходим к концу второй копии
+            else if (scrollLeft <= 0) {
+                carousel.scrollLeft = scrollWidth / 3 * 2 - clientWidth;
+            }
+        });
+
+        // Устанавливаем начальную позицию в середине (первая копия)
+        setTimeout(() => {
+            carousel.scrollLeft = carousel.scrollWidth / 3;
+        }, 100);
+    }
+
+    // Инициализация
+    document.addEventListener('DOMContentLoaded', () => {
+        createInfiniteCarousel();
+        setupMouseWheelScroll();
+    });
+</script>
 </body>
 </html>
