@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>КенУслуги | Государственный портал Кендрессии</title>
+    <link rel="icon" href="images/kengos-logo.png" type="image/png">
     <style>
         * {
             margin: 0;
@@ -29,6 +30,7 @@
             --border-color: #d0d5dd;
         }
 
+        /* Иконка сайта из лого */
         .warning-banner {
             position: fixed;
             top: 0;
@@ -36,21 +38,32 @@
             right: 0;
             background: var(--gos-red);
             color: white;
-            padding: 8px 0;
+            padding: 12px 0;
             text-align: center;
-            font-size: 12px;
+            font-size: 14px;
+            font-weight: 500;
             z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .banner-logo {
+            height: 30px;
+            width: auto;
+            filter: brightness(0) invert(1);
         }
 
         .main-content {
-            margin-top: 38px;
+            margin-top: 54px;
         }
 
-        /* Шапка с логотипом */
+        /* Шапка с большим лого */
         .header {
             background: white;
             border-bottom: 3px solid var(--gos-red);
-            padding: 20px 0;
+            padding: 15px 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
@@ -60,46 +73,55 @@
             padding: 0 20px;
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 40px;
             flex-wrap: wrap;
         }
 
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
+            flex: 1;
         }
 
         .kengos-logo {
-            height: 60px;
+            height: 70px;
             width: auto;
             object-fit: contain;
         }
 
         .logo-text h1 {
-            color: var(--gos-blue);
-            font-size: 2em;
-            font-weight: 700;
+            font-size: 2.5em;
+            font-weight: 800;
             line-height: 1.2;
+        }
+
+        .logo-text .ken {
+            color: var(--gos-red);
+        }
+
+        .logo-text .uslugi {
+            color: var(--gos-blue);
         }
 
         .logo-text p {
             color: #666;
-            font-size: 0.9em;
+            font-size: 1em;
+            margin-top: 5px;
         }
 
         .server-badge {
-            margin-left: auto;
             background: var(--gos-light-blue);
-            padding: 12px 25px;
-            border-radius: 40px;
-            border: 1px solid var(--gos-blue);
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: 2px solid var(--gos-blue);
+            font-weight: 600;
+            font-size: 1.1em;
         }
 
         .server-badge a {
             color: var(--gos-blue);
             text-decoration: none;
-            font-weight: 600;
         }
 
         .server-badge a:hover {
@@ -111,8 +133,9 @@
             background: white;
             border-bottom: 2px solid var(--gos-red);
             position: sticky;
-            top: 38px;
+            top: 54px;
             z-index: 99;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
         .nav ul {
@@ -130,11 +153,11 @@
 
         .nav a {
             display: block;
-            padding: 16px 20px;
+            padding: 16px 24px;
             color: #333;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95em;
+            font-size: 1em;
             border-bottom: 3px solid transparent;
             transition: all 0.2s;
         }
@@ -168,50 +191,52 @@
 
         .stat-card {
             background: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             border: 1px solid var(--border-color);
         }
 
         .stat-card .label {
             color: #666;
-            font-size: 0.9em;
-            margin-bottom: 8px;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .stat-card .value {
             color: var(--gos-blue);
-            font-size: 2em;
+            font-size: 2.5em;
             font-weight: 700;
         }
 
         /* Основные секции */
         .section {
             background: white;
-            border-radius: 16px;
-            padding: 30px;
+            border-radius: 20px;
+            padding: 35px;
             margin: 40px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
             border: 1px solid var(--border-color);
         }
 
         .section-title {
             color: var(--gos-blue);
-            font-size: 1.8em;
-            margin-bottom: 25px;
+            font-size: 2em;
+            margin-bottom: 30px;
             padding-bottom: 15px;
-            border-bottom: 2px solid var(--gos-red);
+            border-bottom: 3px solid var(--gos-red);
             position: relative;
         }
 
         .section-title:after {
             content: '';
             position: absolute;
-            bottom: -2px;
+            bottom: -3px;
             left: 0;
-            width: 100px;
-            height: 2px;
+            width: 120px;
+            height: 3px;
             background: var(--gos-blue);
         }
 
@@ -221,10 +246,10 @@
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             background: var(--gos-light-blue);
-            border-radius: 16px;
-            padding: 30px;
+            border-radius: 20px;
+            padding: 35px;
             margin: 20px 0;
-            border: 1px solid var(--gos-blue);
+            border: 2px solid var(--gos-blue);
         }
 
         @media (max-width: 768px) {
@@ -236,7 +261,9 @@
         .info-block h3 {
             color: var(--gos-blue);
             margin-bottom: 20px;
-            font-size: 1.3em;
+            font-size: 1.5em;
+            border-left: 5px solid var(--gos-red);
+            padding-left: 15px;
         }
 
         .info-block ul {
@@ -244,9 +271,10 @@
         }
 
         .info-block li {
-            margin-bottom: 12px;
-            padding-left: 25px;
+            margin-bottom: 15px;
+            padding-left: 30px;
             position: relative;
+            font-size: 1.1em;
         }
 
         .info-block li:before {
@@ -255,6 +283,7 @@
             position: absolute;
             left: 0;
             font-weight: bold;
+            font-size: 1.2em;
         }
 
         /* Реестр иноагентов */
@@ -266,31 +295,32 @@
 
         .person-card {
             background: var(--gos-light-red);
-            border: 1px solid var(--gos-red);
-            border-radius: 12px;
-            padding: 20px;
+            border: 2px solid var(--gos-red);
+            border-radius: 16px;
+            padding: 25px;
             transition: all 0.2s;
         }
 
         .person-card:hover {
-            transform: translateX(5px);
-            box-shadow: 0 4px 12px rgba(218, 23, 72, 0.2);
+            transform: translateX(8px);
+            box-shadow: 0 8px 20px rgba(218, 23, 72, 0.2);
         }
 
         .card-header {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
         .status {
-            font-size: 11px;
-            padding: 4px 12px;
+            font-size: 12px;
+            padding: 6px 16px;
             border-radius: 30px;
             font-weight: 700;
             text-transform: uppercase;
             background: white;
+            letter-spacing: 0.5px;
         }
 
         .status-wanted {
@@ -306,39 +336,42 @@
         .category {
             background: white;
             color: var(--gos-blue);
-            border: 1px solid var(--gos-blue);
-            padding: 4px 12px;
+            border: 2px solid var(--gos-blue);
+            padding: 6px 16px;
             border-radius: 30px;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
         }
 
         .person-name {
-            font-size: 1.5em;
+            font-size: 1.8em;
             color: var(--gos-red);
-            margin: 10px 0;
+            margin: 15px 0;
             font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         .person-detail {
-            margin: 8px 0;
+            margin: 12px 0;
             color: #333;
+            font-size: 1.1em;
         }
 
         .person-detail strong {
             color: var(--gos-blue);
-            min-width: 100px;
+            min-width: 120px;
             display: inline-block;
+            font-size: 1em;
         }
 
         /* Новости */
         .news-container {
             width: 100%;
-            height: 500px;
+            height: 550px;
             overflow: hidden;
             position: relative;
-            border: 2px solid var(--gos-blue);
-            border-radius: 16px;
+            border: 3px solid var(--gos-blue);
+            border-radius: 20px;
             background: var(--gos-light-blue);
         }
 
@@ -359,12 +392,12 @@
         }
 
         .news-slide {
-            min-width: 350px;
+            min-width: 380px;
             background: white;
-            border: 1px solid var(--gos-blue);
-            border-radius: 12px;
+            border: 2px solid var(--gos-blue);
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             transition: all 0.3s;
             flex-shrink: 0;
             display: flex;
@@ -372,13 +405,14 @@
         }
 
         .news-slide:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 20px rgba(25, 62, 239, 0.2);
+            transform: scale(1.03);
+            box-shadow: 0 12px 30px rgba(25, 62, 239, 0.3);
+            border-color: var(--gos-red);
         }
 
         .news-image-container {
             width: 100%;
-            height: 220px;
+            height: 240px;
             overflow: hidden;
             background: var(--gos-light-blue);
         }
@@ -390,81 +424,98 @@
         }
 
         .news-content {
-            padding: 20px;
+            padding: 25px;
         }
 
         .news-date {
             color: var(--gos-red);
             font-weight: 600;
-            font-size: 0.85em;
-            margin-bottom: 8px;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .news-title {
             color: var(--gos-blue);
-            font-size: 1.2em;
+            font-size: 1.3em;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            line-height: 1.4;
         }
 
         .news-text {
             color: #555;
-            font-size: 0.95em;
-            line-height: 1.5;
+            font-size: 1em;
+            line-height: 1.6;
         }
 
         /* Лидер */
         .leader-section {
             text-align: center;
             background: linear-gradient(135deg, var(--gos-light-blue) 0%, var(--gos-light-red) 100%);
-            border-radius: 20px;
-            padding: 30px;
+            border-radius: 30px;
+            padding: 40px;
+            border: 2px solid var(--gos-blue);
         }
 
         .leader-image {
-            width: 200px;
-            height: 200px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
-            border: 4px solid var(--gos-red);
+            border: 5px solid var(--gos-red);
             object-fit: cover;
             margin: 20px auto;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
 
         .leader-name {
-            font-size: 2em;
+            font-size: 2.5em;
             color: var(--gos-blue);
-            font-weight: 700;
-            margin: 10px 0;
+            font-weight: 800;
+            margin: 15px 0;
+            letter-spacing: -0.5px;
         }
 
         .leader-title {
             color: var(--gos-red);
-            font-size: 1.2em;
+            font-size: 1.3em;
             font-weight: 600;
         }
 
-        /* Конституция */
+        /* Конституция - исправлена ширина */
+        .constitution-section {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 40px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
         .constitution-container {
             background: white;
-            border: 2px solid var(--gos-blue);
-            border-radius: 20px;
-            padding: 30px;
+            border: 3px solid var(--gos-blue);
+            border-radius: 24px;
+            padding: 40px;
             margin-bottom: 30px;
+            max-width: 100%;
+            overflow-x: hidden;
         }
 
         .constitution-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             color: var(--gos-blue);
-            font-size: 1.8em;
-            font-weight: 700;
+            font-size: 2em;
+            font-weight: 800;
+            line-height: 1.4;
         }
 
         .constitution-part {
-            margin-bottom: 35px;
-            padding-bottom: 25px;
-            border-bottom: 2px dashed var(--gos-red);
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px dashed var(--gos-red);
         }
 
         .constitution-part:last-child {
@@ -473,20 +524,27 @@
 
         .chapter-title {
             color: var(--gos-red);
-            font-size: 1.3em;
+            font-size: 1.5em;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            background: var(--gos-light-red);
+            padding: 12px 20px;
+            border-radius: 12px;
+            display: inline-block;
         }
 
         .article-block {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .article-clause {
-            margin: 10px 0 10px 25px;
-            padding-left: 15px;
+            margin: 15px 0 15px 30px;
+            padding-left: 20px;
             position: relative;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 1.05em;
+            max-width: 100%;
+            word-wrap: break-word;
         }
 
         .article-clause:before {
@@ -494,23 +552,24 @@
             color: var(--gos-red);
             position: absolute;
             left: -5px;
-            font-size: 1.2em;
+            font-size: 1.5em;
             font-weight: bold;
         }
 
         .confirmation-stamp {
-            margin-top: 30px;
-            padding: 25px;
+            margin-top: 40px;
+            padding: 30px;
             background: var(--gos-light-blue);
-            border: 2px dashed var(--gos-blue);
-            border-radius: 12px;
+            border: 3px dashed var(--gos-blue);
+            border-radius: 20px;
             text-align: right;
         }
 
         .confirmation-stamp .date {
-            font-size: 1.5em;
-            font-weight: 700;
+            font-size: 2em;
+            font-weight: 800;
             color: var(--gos-red);
+            margin: 10px 0;
         }
 
         /* Законы */
@@ -521,21 +580,27 @@
 
         .law-item {
             background: var(--gos-light-red);
-            border-left: 5px solid var(--gos-red);
-            border-radius: 10px;
-            padding: 20px;
+            border-left: 8px solid var(--gos-red);
+            border-radius: 16px;
+            padding: 25px;
         }
 
         .law-item h3 {
             color: var(--gos-blue);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .law-item p {
+            font-size: 1.05em;
+            line-height: 1.7;
         }
 
         /* Футер */
         footer {
             background: var(--gos-blue);
             color: white;
-            padding: 40px 0;
+            padding: 50px 0;
             margin-top: 50px;
         }
 
@@ -546,25 +611,35 @@
             text-align: center;
         }
 
+        .footer-logo {
+            height: 50px;
+            width: auto;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1);
+        }
+
         .signature {
-            font-size: 1.8em;
-            font-weight: 700;
-            margin: 20px 0;
+            font-size: 2em;
+            font-weight: 800;
+            margin: 25px 0;
             color: white;
+            letter-spacing: 1px;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 40px;
             flex-wrap: wrap;
-            margin: 20px 0;
+            margin: 25px 0;
         }
 
         .footer-links a {
             color: white;
             text-decoration: none;
             opacity: 0.9;
+            font-size: 1.1em;
+            font-weight: 500;
         }
 
         .footer-links a:hover {
@@ -575,22 +650,26 @@
 </head>
 <body>
     <div class="warning-banner">
-        ⚠ КенУслуги — игровой проект сервера AmethystSMP. Все персонажи и события вымышлены.
+        <img src="images/kengos-logo.png" alt="" class="banner-logo" onerror="this.style.display='none'">
+        КенУслуги — Государственный портал Кендрессии
+        <img src="images/kengos-logo.png" alt="" class="banner-logo" onerror="this.style.display='none'">
     </div>
 
     <div class="main-content">
-        <!-- Шапка -->
+        <!-- Шапка с большим лого -->
         <header class="header">
             <div class="header-container">
                 <div class="logo-area">
                     <img src="images/kengos-logo.png" alt="КенУслуги" class="kengos-logo" onerror="this.style.display='none'">
                     <div class="logo-text">
-                        <h1>КенУслуги</h1>
+                        <h1>
+                            <span class="ken">КЕН</span><span class="uslugi">УСЛУГИ</span>
+                        </h1>
                         <p>Государственный портал Кендрессии</p>
                     </div>
                 </div>
                 <div class="server-badge">
-                    <a href="https://t.me/AmethystSMPChannel" target="_blank">AmethystSMP →</a>
+                    <a href="https://t.me/AmethystSMPChannel" target="_blank">AmethystSMP</a>
                 </div>
             </div>
         </header>
@@ -624,7 +703,7 @@
                 </div>
             </div>
 
-            <!-- Информация о государстве (как в первом коде) -->
+            <!-- Информация о государстве -->
             <section id="info" class="section">
                 <h2 class="section-title">О КЕНДРЕССИИ</h2>
                 <div class="info-grid">
@@ -640,15 +719,15 @@
                     <div class="info-block">
                         <h3>Достижения</h3>
                         <ul>
-                            <li>✓ Одно из самых первых государств</li>
-                            <li>✓ Самое влиятельное и сильное государство</li>
-                            <li>✓ Развитая экономика и порядок везде</li>
+                            <li>Одно из самых первых государств</li>
+                            <li>Самое влиятельное и сильное государство</li>
+                            <li>Развитая экономика и порядок везде</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- Реестр иноагентов (полностью из первого кода) -->
+            <!-- Реестр иноагентов -->
             <section id="registry" class="section">
                 <h2 class="section-title">ЕДИНЫЙ РЕЕСТР ИНОСТРАННЫХ АГЕНТОВ</h2>
                 <div class="registry-list">
@@ -837,14 +916,14 @@
             <section id="leader" class="section">
                 <h2 class="section-title">ЛИДЕР ГОСУДАРСТВА</h2>
                 <div class="leader-section">
-                    <img src="images/ken-poster.png" alt="Кен Флиш" class="leader-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSIxMDAiIHk9IjEwMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+S0VOIEZMSVNIPC90ZXh0Pjwvc3ZnPg=='>
+                    <img src="images/ken-poster.png" alt="Кен Флиш" class="leader-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjI1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSIxMjUiIHk9IjEyNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+S0VOIEZMSVNIPC90ZXh0Pjwvc3ZnPg=='>
                     <div class="leader-name">Кен Флиш</div>
                     <div class="leader-title">Великий Правитель, Отец народа, Основоположник Кендрессии</div>
                 </div>
             </section>
 
-            <!-- Конституция -->
-            <section id="constitution" class="section">
+            <!-- Конституция - исправлена ширина -->
+            <section id="constitution" class="section constitution-section">
                 <h2 class="section-title">КОНСТИТУЦИЯ КЕНДРЕССИИ</h2>
 
                 <div class="constitution-container">
@@ -909,7 +988,7 @@
                         <p>Настоящая Конституция утверждена и вступает в законную силу</p>
                         <div class="date">18 февраля 2026 года</div>
                         <p>Государственной Думой Кендрессии</p>
-                        <p style="font-style: italic; margin-top: 10px;">За подписью Великого Правителя Кена</p>
+                        <p style="font-style: italic; margin-top: 15px; font-size: 1.1em;">За подписью Великого Правителя Кена</p>
                     </div>
                 </div>
 
@@ -943,6 +1022,7 @@
         <!-- Футер -->
         <footer>
             <div class="footer-content">
+                <img src="images/kengos-logo.png" alt="КенУслуги" class="footer-logo" onerror="this.style.display='none'">
                 <p>© 2025-2026 КенУслуги | Государственный портал Кендрессии</p>
                 <div class="signature">Кен</div>
                 <div class="footer-links">
@@ -950,9 +1030,6 @@
                     <a href="#">Поддержка</a>
                     <a href="https://t.me/AmethystSMPChannel">AmethystSMP</a>
                 </div>
-                <p style="font-size: 12px; margin-top: 20px; opacity: 0.8;">
-                    Игровой проект. Все события и персонажи вымышлены.
-                </p>
             </div>
         </footer>
     </div>
@@ -1003,7 +1080,7 @@
                     slide.className = 'news-slide';
                     slide.innerHTML = `
                         <div class="news-image-container">
-                            <img src="${news.image}" alt="${news.title}" class="news-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzUwIiBoZWlnaHQ9IjIyMCIgdmlld0JveD0iMCAwIDM1MCAyMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyMjAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSIxNzUiIHk9IjExMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+RgNC10L3RitC10YDRgDwvdGV4dD48L3N2Zz4='">
+                            <img src="${news.image}" alt="${news.title}" class="news-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzgwIiBoZWlnaHQ9IjI0MCIgdmlld0JveD0iMCAwIDM4MCAyNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjM4MCIgaGVpZ2h0PSIyNDAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSIxOTAiIHk9IjEyMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+0J3QvtCy0L7RgdGC0Yw8L3RleHQ+PC9zdmc+'">
                         </div>
                         <div class="news-content">
                             <div class="news-date">${news.date}</div>
@@ -1071,10 +1148,19 @@
             });
         }
 
+        // Иконка вкладки
+        function setFavicon() {
+            const link = document.querySelector("link[rel~='icon']");
+            if (link) {
+                link.href = "images/kengos-logo.png";
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             createCarousel();
             setupCarouselScroll();
             setupActiveNav();
+            setFavicon();
         });
     </script>
 </body>
