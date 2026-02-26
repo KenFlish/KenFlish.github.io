@@ -17,81 +17,77 @@
             background: #f0f2f5;
             color: #333;
             line-height: 1.5;
+            padding-top: 130px;
         }
 
-        /* Цвета как в логотипе */
         :root {
             --gos-blue: #1936EF;
             --gos-red: #DA1748;
             --gos-light-blue: #e6ecff;
             --gos-light-red: #ffe6ea;
             --white: #FFFFFF;
-            --gray-bg: #f5f7fa;
             --border-color: #d0d5dd;
         }
 
-        /* Иконка сайта из лого */
-        .warning-banner {
+        .sticky-header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
+            background: white;
+            border-bottom: 3px solid var(--gos-red);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            z-index: 9999;
+        }
+
+        .top-bar {
             background: var(--gos-red);
             color: white;
-            padding: 12px 0;
+            padding: 8px 0;
             text-align: center;
             font-size: 14px;
             font-weight: 500;
-            z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
         }
 
-        .banner-logo {
-            height: 30px;
+        .top-bar-logo {
+            height: 24px;
             width: auto;
             filter: brightness(0) invert(1);
         }
 
-        .main-content {
-            margin-top: 54px;
-        }
-
-        /* Шапка с большим лого */
-        .header {
+        .header-main {
             background: white;
-            border-bottom: 3px solid var(--gos-red);
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 10px 20px;
         }
 
         .header-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
             display: flex;
             align-items: center;
-            gap: 40px;
+            gap: 30px;
             flex-wrap: wrap;
         }
 
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 20px;
-            flex: 1;
+            gap: 15px;
+            flex-shrink: 0;
         }
 
         .kengos-logo {
-            height: 70px;
+            height: 50px;
             width: auto;
             object-fit: contain;
         }
 
-        .logo-text h1 {
-            font-size: 2.5em;
+        .logo-text h2 {
+            font-size: 1.8em;
             font-weight: 800;
             line-height: 1.2;
         }
@@ -106,17 +102,52 @@
 
         .logo-text p {
             color: #666;
-            font-size: 1em;
-            margin-top: 5px;
+            font-size: 0.85em;
+            margin-top: 2px;
+        }
+
+        .nav-menu {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-menu ul {
+            display: flex;
+            list-style: none;
+            gap: 2px;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--gos-red);
+            border: 2px solid var(--gos-red);
+            background: var(--gos-light-red);
+        }
+
+        .nav-menu a.active {
+            color: var(--gos-red);
+            border: 2px solid var(--gos-red);
+            background: var(--gos-light-red);
         }
 
         .server-badge {
             background: var(--gos-light-blue);
-            padding: 15px 30px;
-            border-radius: 50px;
+            padding: 10px 20px;
+            border-radius: 30px;
             border: 2px solid var(--gos-blue);
             font-weight: 600;
-            font-size: 1.1em;
+            white-space: nowrap;
         }
 
         .server-badge a {
@@ -124,94 +155,95 @@
             text-decoration: none;
         }
 
-        .server-badge a:hover {
-            text-decoration: underline;
-        }
-
-        /* Навигация */
-        .nav {
-            background: white;
-            border-bottom: 2px solid var(--gos-red);
-            position: sticky;
-            top: 54px;
-            z-index: 99;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .nav ul {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .nav li {
-            margin-right: 5px;
-        }
-
-        .nav a {
-            display: block;
-            padding: 16px 24px;
-            color: #333;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1em;
-            border-bottom: 3px solid transparent;
-            transition: all 0.2s;
-        }
-
-        .nav a:hover {
-            color: var(--gos-red);
-            border-bottom-color: var(--gos-red);
-            background: var(--gos-light-red);
-        }
-
-        .nav a.active {
-            color: var(--gos-red);
-            border-bottom-color: var(--gos-red);
-            background: var(--gos-light-red);
-        }
-
-        /* Контейнер */
         .container {
             max-width: 1200px;
-            margin: 30px auto;
+            margin: 20px auto;
             padding: 0 20px;
         }
 
-        /* Информационные карточки сверху */
-        .stats-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+        .action-button {
+            text-align: center;
+            margin: 30px 0;
         }
 
-        .stat-card {
-            background: white;
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border: 1px solid var(--border-color);
-        }
-
-        .stat-card .label {
-            color: #666;
-            font-size: 0.95em;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .stat-card .value {
-            color: var(--gos-blue);
-            font-size: 2.5em;
+        .doc-button {
+            background: var(--gos-red);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.5em;
             font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 3px solid var(--gos-blue);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
         }
 
-        /* Основные секции */
+        .doc-button:hover {
+            transform: scale(1.05);
+            background: var(--gos-blue);
+            border-color: var(--gos-red);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            border: 5px solid var(--gos-red);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2em;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .modal-close:hover {
+            color: var(--gos-red);
+        }
+
+        .modal-title {
+            color: var(--gos-blue);
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--gos-red);
+            padding-bottom: 10px;
+        }
+
+        .modal-text {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+
+        .modal-text strong {
+            color: var(--gos-red);
+        }
+
         .section {
             background: white;
             border-radius: 20px;
@@ -240,7 +272,6 @@
             background: var(--gos-blue);
         }
 
-        /* Информация о государстве */
         .info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -248,7 +279,6 @@
             background: var(--gos-light-blue);
             border-radius: 20px;
             padding: 35px;
-            margin: 20px 0;
             border: 2px solid var(--gos-blue);
         }
 
@@ -286,90 +316,10 @@
             font-size: 1.2em;
         }
 
-        /* Реестр иноагентов */
-        .registry-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .person-card {
-            background: var(--gos-light-red);
-            border: 2px solid var(--gos-red);
-            border-radius: 16px;
-            padding: 25px;
-            transition: all 0.2s;
-        }
-
-        .person-card:hover {
-            transform: translateX(8px);
-            box-shadow: 0 8px 20px rgba(218, 23, 72, 0.2);
-        }
-
-        .card-header {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .status {
-            font-size: 12px;
-            padding: 6px 16px;
-            border-radius: 30px;
-            font-weight: 700;
-            text-transform: uppercase;
-            background: white;
-            letter-spacing: 0.5px;
-        }
-
-        .status-wanted {
-            background: var(--gos-red);
-            color: white;
-        }
-
-        .status-imprisoned {
-            background: #666;
-            color: white;
-        }
-
-        .category {
-            background: white;
-            color: var(--gos-blue);
-            border: 2px solid var(--gos-blue);
-            padding: 6px 16px;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .person-name {
-            font-size: 1.8em;
-            color: var(--gos-red);
-            margin: 15px 0;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .person-detail {
-            margin: 12px 0;
-            color: #333;
-            font-size: 1.1em;
-        }
-
-        .person-detail strong {
-            color: var(--gos-blue);
-            min-width: 120px;
-            display: inline-block;
-            font-size: 1em;
-        }
-
-        /* Новости */
         .news-container {
             width: 100%;
             height: 550px;
             overflow: hidden;
-            position: relative;
             border: 3px solid var(--gos-blue);
             border-radius: 20px;
             background: var(--gos-light-blue);
@@ -383,7 +333,6 @@
             overflow-x: auto;
             overflow-y: hidden;
             scroll-behavior: smooth;
-            align-items: stretch;
             scrollbar-width: none;
         }
 
@@ -433,7 +382,6 @@
             font-size: 0.9em;
             margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .news-title {
@@ -441,7 +389,6 @@
             font-size: 1.3em;
             font-weight: 700;
             margin-bottom: 12px;
-            line-height: 1.4;
         }
 
         .news-text {
@@ -450,7 +397,6 @@
             line-height: 1.6;
         }
 
-        /* Лидер */
         .leader-section {
             text-align: center;
             background: linear-gradient(135deg, var(--gos-light-blue) 0%, var(--gos-light-red) 100%);
@@ -474,7 +420,6 @@
             color: var(--gos-blue);
             font-weight: 800;
             margin: 15px 0;
-            letter-spacing: -0.5px;
         }
 
         .leader-title {
@@ -483,14 +428,77 @@
             font-weight: 600;
         }
 
-        /* Конституция - исправлена ширина */
-        .constitution-section {
+        .registry-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .person-card {
+            background: var(--gos-light-red);
+            border: 2px solid var(--gos-red);
+            border-radius: 16px;
+            padding: 25px;
+            transition: all 0.2s;
+        }
+
+        .person-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 20px rgba(218, 23, 72, 0.2);
+        }
+
+        .card-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .status {
+            font-size: 12px;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
             background: white;
-            border-radius: 20px;
-            padding: 35px;
-            margin: 40px 0;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            border: 1px solid var(--border-color);
+        }
+
+        .status-wanted {
+            background: var(--gos-red);
+            color: white;
+        }
+
+        .status-imprisoned {
+            background: #666;
+            color: white;
+        }
+
+        .category {
+            background: white;
+            color: var(--gos-blue);
+            border: 2px solid var(--gos-blue);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .person-name {
+            font-size: 1.8em;
+            color: var(--gos-red);
+            margin: 15px 0;
+            font-weight: 700;
+        }
+
+        .person-detail {
+            margin: 12px 0;
+            font-size: 1.1em;
+        }
+
+        .person-detail strong {
+            color: var(--gos-blue);
+            min-width: 120px;
+            display: inline-block;
         }
 
         .constitution-container {
@@ -499,8 +507,9 @@
             border-radius: 24px;
             padding: 40px;
             margin-bottom: 30px;
-            max-width: 100%;
+            width: 100%;
             overflow-x: hidden;
+            word-wrap: break-word;
         }
 
         .constitution-header {
@@ -518,10 +527,6 @@
             border-bottom: 3px dashed var(--gos-red);
         }
 
-        .constitution-part:last-child {
-            border-bottom: none;
-        }
-
         .chapter-title {
             color: var(--gos-red);
             font-size: 1.5em;
@@ -533,18 +538,12 @@
             display: inline-block;
         }
 
-        .article-block {
-            margin-bottom: 25px;
-        }
-
         .article-clause {
-            margin: 15px 0 15px 30px;
+            margin: 15px 0 15px 20px;
             padding-left: 20px;
             position: relative;
             line-height: 1.7;
             font-size: 1.05em;
-            max-width: 100%;
-            word-wrap: break-word;
         }
 
         .article-clause:before {
@@ -553,7 +552,6 @@
             position: absolute;
             left: -5px;
             font-size: 1.5em;
-            font-weight: bold;
         }
 
         .confirmation-stamp {
@@ -572,7 +570,6 @@
             margin: 10px 0;
         }
 
-        /* Законы */
         .laws-list {
             display: grid;
             gap: 20px;
@@ -591,12 +588,6 @@
             font-size: 1.3em;
         }
 
-        .law-item p {
-            font-size: 1.05em;
-            line-height: 1.7;
-        }
-
-        /* Футер */
         footer {
             background: var(--gos-blue);
             color: white;
@@ -623,419 +614,377 @@
             font-weight: 800;
             margin: 25px 0;
             color: white;
-            letter-spacing: 1px;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin: 25px 0;
-        }
-
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.9;
-            font-size: 1.1em;
-            font-weight: 500;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="warning-banner">
-        <img src="images/kengos-logo.png" alt="" class="banner-logo" onerror="this.style.display='none'">
-        КенУслуги — Государственный портал Кендрессии
-        <img src="images/kengos-logo.png" alt="" class="banner-logo" onerror="this.style.display='none'">
-    </div>
+    <div class="sticky-header">
+        <div class="top-bar">
+            <img src="images/kengos-logo.png" alt="" class="top-bar-logo" onerror="this.style.display='none'">
+            КенУслуги — Государственный портал Кендрессии
+            <img src="images/kengos-logo.png" alt="" class="top-bar-logo" onerror="this.style.display='none'">
+        </div>
 
-    <div class="main-content">
-        <!-- Шапка с большим лого -->
-        <header class="header">
+        <div class="header-main">
             <div class="header-container">
                 <div class="logo-area">
                     <img src="images/kengos-logo.png" alt="КенУслуги" class="kengos-logo" onerror="this.style.display='none'">
                     <div class="logo-text">
-                        <h1>
+                        <h2>
                             <span class="ken">КЕН</span><span class="uslugi">УСЛУГИ</span>
-                        </h1>
+                        </h2>
                         <p>Государственный портал Кендрессии</p>
                     </div>
                 </div>
+
+                <div class="nav-menu">
+                    <ul>
+                        <li><a href="#info" class="nav-link">ИНФОРМАЦИЯ</a></li>
+                        <li><a href="#news" class="nav-link">НОВОСТИ</a></li>
+                        <li><a href="#leader" class="nav-link">ЛИДЕР</a></li>
+                        <li><a href="#constitution" class="nav-link">КОНСТИТУЦИЯ</a></li>
+                        <li><a href="#registry" class="nav-link">РЕЕСТР</a></li>
+                    </ul>
+                </div>
+
                 <div class="server-badge">
                     <a href="https://t.me/AmethystSMPChannel" target="_blank">AmethystSMP</a>
                 </div>
             </div>
-        </header>
-
-        <!-- Навигация -->
-        <nav class="nav">
-            <ul>
-                <li><a href="#info" class="nav-link">ГЛАВНАЯ</a></li>
-                <li><a href="#registry" class="nav-link">РЕЕСТР</a></li>
-                <li><a href="#news" class="nav-link">НОВОСТИ</a></li>
-                <li><a href="#leader" class="nav-link">ЛИДЕР</a></li>
-                <li><a href="#constitution" class="nav-link">КОНСТИТУЦИЯ</a></li>
-            </ul>
-        </nav>
-
-        <!-- Контент -->
-        <div class="container">
-            <!-- Статистика -->
-            <div class="stats-row">
-                <div class="stat-card">
-                    <div class="label">Граждан Кендрессии</div>
-                    <div class="value">1 247</div>
-                </div>
-                <div class="stat-card">
-                    <div class="label">В розыске</div>
-                    <div class="value">14</div>
-                </div>
-                <div class="stat-card">
-                    <div class="label">Год основания</div>
-                    <div class="value">2025</div>
-                </div>
-            </div>
-
-            <!-- Информация о государстве -->
-            <section id="info" class="section">
-                <h2 class="section-title">О КЕНДРЕССИИ</h2>
-                <div class="info-grid">
-                    <div class="info-block">
-                        <h3>Основная информация</h3>
-                        <ul>
-                            <li><strong>Правитель:</strong> Кен Флиш</li>
-                            <li><strong>Столица:</strong> Кенград</li>
-                            <li><strong>Форма правления:</strong> Диктатура</li>
-                            <li><strong>Дата основания:</strong> С момента создания AmethystSMP</li>
-                        </ul>
-                    </div>
-                    <div class="info-block">
-                        <h3>Достижения</h3>
-                        <ul>
-                            <li>Одно из самых первых государств</li>
-                            <li>Самое влиятельное и сильное государство</li>
-                            <li>Развитая экономика и порядок везде</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Реестр иноагентов -->
-            <section id="registry" class="section">
-                <h2 class="section-title">ЕДИНЫЙ РЕЕСТР ИНОСТРАННЫХ АГЕНТОВ</h2>
-                <div class="registry-list">
-                    <!-- Платон -->
-                    <div class="person-card">
-                        <div class="card-header">
-                            <span class="status status-wanted">В РОЗЫСКЕ</span>
-                            <span class="category">Иностранный агент</span>
-                            <span class="category">Экстремист</span>
-                        </div>
-                        <div class="person-name">❗️Платон❗️</div>
-                        <div class="person-detail"><strong>Причина:</strong> Распространение экстремисткой идеологии, подрыв государственных устоев</div>
-                        <div class="person-detail"><strong>Статус:</strong> Объявлен в розыск</div>
-                        <div class="person-detail"><strong>Дата внесения:</strong> 02.02.2026</div>
-                    </div>
-
-                    <!-- Алочность -->
-                    <div class="person-card">
-                        <div class="card-header">
-                            <span class="status status-wanted">В РОЗЫСКЕ</span>
-                            <span class="category">Иностранный агент</span>
-                            <span class="category">Оскорбитель власти</span>
-                        </div>
-                        <div class="person-name">❗️Алочность❗️</div>
-                        <div class="person-detail"><strong>Причина:</strong> Систематические оскорбления Великого Правителя и государственных институтов</div>
-                        <div class="person-detail"><strong>Статус:</strong> Объявлен в розыск</div>
-                        <div class="person-detail"><strong>Дата внесения:</strong> 02.02.2026</div>
-                    </div>
-
-                    <!-- Некто Неизвестный -->
-                    <div class="person-card">
-                        <div class="card-header">
-                            <span class="status status-wanted">В РОЗЫСКЕ</span>
-                            <span class="category">Иностранный агент</span>
-                            <span class="category">Дезинформатор</span>
-                        </div>
-                        <div class="person-name">❗️Некто Неизвестный❗️</div>
-                        <div class="person-detail"><strong>Причина:</strong> Распространение ложной информации о государстве, создание фейковых новостей</div>
-                        <div class="person-detail"><strong>Статус:</strong> Объявлен в розыск</div>
-                        <div class="person-detail"><strong>Дата внесения:</strong> 02.02.2026</div>
-                    </div>
-
-                    <!-- Shnaps -->
-                    <div class="person-card">
-                        <div class="card-header">
-                            <span class="status status-wanted">В РОЗЫСКЕ</span>
-                            <span class="category">Иностранный агент</span>
-                        </div>
-                        <div class="person-name">❗️Shnaps❗️</div>
-                        <div class="person-detail"><strong>Причина:</strong> Многочисленные оскорбления и нарушения правил</div>
-                        <div class="person-detail"><strong>Статус:</strong> Объявлен в розыск</div>
-                        <div class="person-detail"><strong>Дата внесения:</strong> Не зафиксирована</div>
-                    </div>
-
-                    <!-- Drakon -->
-                    <div class="person-card">
-                        <div class="card-header">
-                            <span class="status status-wanted">В РОЗЫСКЕ</span>
-                            <span class="category">Иностранный агент</span>
-                        </div>
-                        <div class="person-name">❗️Drakon❗️</div>
-                        <div class="person-detail"><strong>Причина:</strong> Проживание за пределами государства и получение средств от представителей власти</div>
-                        <div class="person-detail"><strong>Статус:</strong> Объявлен в розыск</div>
-                        <div class="person-detail"><strong>Дата внесения:</strong> Не зафиксирована</div>
-                    </div>
-
-                    <!-- Skelle -->
-                    <div class="person-card">
-                        <div class="card-header">
-                            <span class="status status-wanted">В РОЗЫСКЕ</span>
-                            <span class="category">Иностранный агент</span>
-                        </div>
-                        <div class="person-name">❗️Skelle❗️</div>
-                        <div class="person-detail"><strong>Причина:</strong> Незаконная деятельность против государства</div>
-                        <div class="person-detail"><strong>Статус:</strong> В розыске</div>
-                        <div class="person-detail"><strong>Дата внесения:</strong> 30.10.2025</div>
-                    </div>
-
-                    <!-- Da1loks -->
-                    <div class="person-card">
-                        <div class="card-header">
-                            <span class="status status-wanted">В РОЗЫСКЕ</span>
-                            <span class="category">Иностранный агент</span>
-                        </div>
-                        <div class="person-name">❗️Da1loks❗️</div>
-                        <div class="person-detail"><strong>Причина:</strong> Террористические действия, критика, военные действия и незаконные убийства на территории Кендресси</div>
-                        <div class="person-detail"><strong>Статус:</strong> В статусе снятия санкций</div>
-                        <div class="person-detail"><strong>Дата внесения:</strong> Не зафиксирована</div>
-                    </div>
-
-                    <!-- Ратмир Кабанов -->
-                    <div class="person-card">
-                        <div class="card-header">
-                            <span class="status status-wanted">В РОЗЫСКЕ</span>
-                            <span class="category">Иностранный агент</span>
-                        </div>
-                        <div class="person-name">❗️ратмир кабанов❗️</div>
-                        <div class="person-detail"><strong>Причина:</strong> Критика и оскорбления Власти Великой Кендрессии</div>
-                        <div class="person-detail"><strong>Статус:</strong> В розыске</div>
-                        <div class="person-detail"><strong>Дата внесения:</strong> Не зафиксирована</div>
-                    </div>
-
-                    <!-- termoqderka -->
-                    <div class="person-card">
-                        <div class="card-header">
-                            <span class="status status-wanted">В РОЗЫСКЕ</span>
-                            <span class="category">Иностранный агент</span>
-                        </div>
-                        <div class="person-name">❗️termoqderka❗️</div>
-                        <div class="person-detail"><strong>Причина:</strong> Критика и оскорбления Власти Великой Кендрессии</div>
-                        <div class="person-detail"><strong>Статус:</strong> В розыске</div>
-                        <div class="person-detail"><strong>Дата внесения:</strong> Не зафиксирована</div>
-                    </div>
-
-                    <!-- SuperSlime -->
-                    <div class="person-card">
-                        <div class="card-header">
-                            <span class="status status-wanted">В РОЗЫСКЕ</span>
-                            <span class="category">Иностранный агент</span>
-                        </div>
-                        <div class="person-name">❗️SuperSlime❗️</div>
-                        <div class="person-detail"><strong>Причина:</strong> Критика и оскорбления Власти Великой Кендрессии</div>
-                        <div class="person-detail"><strong>Статус:</strong> В розыске</div>
-                        <div class="person-detail"><strong>Дата внесения:</strong> Не зафиксирована</div>
-                    </div>
-
-                    <!-- Lil Testi -->
-                    <div class="person-card">
-                        <div class="card-header">
-                            <span class="status status-wanted">В РОЗЫСКЕ</span>
-                            <span class="category">Иностранный агент</span>
-                        </div>
-                        <div class="person-name">❗️Lil Testi❗️</div>
-                        <div class="person-detail"><strong>Причина:</strong> Многочисленные оскорбления и нарушения правил</div>
-                        <div class="person-detail"><strong>Статус:</strong> Объявлен в розыск</div>
-                        <div class="person-detail"><strong>Дата внесения:</strong> Не зафиксирована</div>
-                    </div>
-
-                    <!-- Весь сервер -->
-                    <div class="person-card">
-                        <div class="card-header">
-                            <span class="status status-wanted">В РОЗЫСКЕ</span>
-                            <span class="category">Иностранный агент</span>
-                        </div>
-                        <div class="person-name">❗️Весь Сервер AmethystSMP❗️</div>
-                        <div class="person-detail"><strong>Причина:</strong> Для профилактики</div>
-                        <div class="person-detail"><strong>Дата внесения:</strong> 27.10.2025</div>
-                    </div>
-
-                    <!-- WaterFlane -->
-                    <div class="person-card">
-                        <div class="card-header">
-                            <span class="status status-wanted">В РОЗЫСКЕ</span>
-                            <span class="category">Иностранный агент</span>
-                            <span class="category">Интернет террорист</span>
-                        </div>
-                        <div class="person-name">❗️WaterFlane❗️</div>
-                        <div class="person-detail"><strong>Причина:</strong> Многочисленные нарушения правил, клевета и критика правительства</div>
-                        <div class="person-detail"><strong>Статус:</strong> Объявлен в розыск</div>
-                        <div class="person-detail"><strong>Дата внесения:</strong> Не зафиксирована</div>
-                    </div>
-
-                    <!-- Символика -->
-                    <div class="person-card">
-                        <div class="card-header">
-                            <span class="status status-wanted">ЗАПРЕЩЕНО</span>
-                            <span class="category">Запрещённая символика</span>
-                        </div>
-                        <div class="person-name">❗️✧ℂ𝕙𝕖𝕝𝕝◦❗️</div>
-                        <div class="person-detail"><strong>Причина:</strong> Признано экстремистской символикой</div>
-                        <div class="person-detail"><strong>Статус:</strong> Запрещено</div>
-                        <div class="person-detail"><strong>Дата внесения:</strong> 19.11.2025</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Новости -->
-            <section id="news" class="section">
-                <h2 class="section-title">НОВОСТИ КЕНДРЕССИИ</h2>
-                <div class="news-container">
-                    <div class="news-carousel" id="newsCarousel"></div>
-                </div>
-            </section>
-
-            <!-- Лидер -->
-            <section id="leader" class="section">
-                <h2 class="section-title">ЛИДЕР ГОСУДАРСТВА</h2>
-                <div class="leader-section">
-                    <img src="images/ken-poster.png" alt="Кен Флиш" class="leader-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjI1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSIxMjUiIHk9IjEyNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+S0VOIEZMSVNIPC90ZXh0Pjwvc3ZnPg=='>
-                    <div class="leader-name">Кен Флиш</div>
-                    <div class="leader-title">Великий Правитель, Отец народа, Основоположник Кендрессии</div>
-                </div>
-            </section>
-
-            <!-- Конституция - исправлена ширина -->
-            <section id="constitution" class="section constitution-section">
-                <h2 class="section-title">КОНСТИТУЦИЯ КЕНДРЕССИИ</h2>
-
-                <div class="constitution-container">
-                    <div class="constitution-header">КОНСТИТУЦИЯ СОЮЗА ПАРТИИ БОМЖЕЙ И БОГАЧЕЙ (СПБ)</div>
-                    
-                    <div class="constitution-part">
-                        <div class="chapter-title">РАЗДЕЛ ПЕРВЫЙ. ОСНОВНЫЕ ПОЛОЖЕНИЯ</div>
-                        <div class="article-block">
-                            <div class="article-clause"><strong>Статья 1.</strong> Союз Партии Бомжей и Богачей (СПБ) является суверенным государством с диктаторской формой правления.</div>
-                            <div class="article-clause"><strong>Статья 1.2.</strong> Наименования «Кендрессия», «СПБ», «Санкт-Петербургское Государство» являются равнозначными.</div>
-                            <div class="article-clause"><strong>Статья 2.</strong> Граждане СПБ обладают личной свободой и неприкосновенностью.</div>
-                            <div class="article-clause"><strong>Статья 2.2.</strong> Агрессия, оскорбление, причинение вреда здоровью или имуществу гражданина являются преступлениями и преследуются по закону.</div>
-                            <div class="article-clause"><strong>Статья 2.3.</strong> Акт агрессии, совершённый иностранным государством или его гражданином, является основанием для объявления состояния войны.</div>
-                            <div class="article-clause"><strong>Статья 3.</strong> Конституция СПБ обладает высшей юридической силой и является незыблемым законом.</div>
-                            <div class="article-clause"><strong>Статья 3.2.</strong> Действие Конституции распространяется на всю территорию СПБ.</div>
-                            <div class="article-clause"><strong>Статья 3.3.</strong> СПБ гарантирует целостность и неприкосновенность своей территории.</div>
-                            <div class="article-clause"><strong>Статья 4.</strong> Земля и природные ресурсы являются основой жизнедеятельности государства.</div>
-                            <div class="article-clause"><strong>Статья 4.2.</strong> Ресурсы находятся под верховным контролем государства. Право пользования предоставляется в соответствии с законом.</div>
-                        </div>
-                    </div>
-
-                    <div class="constitution-part">
-                        <div class="chapter-title">Глава 2. Права, свободы и обязанности человека и гражданина</div>
-                        <div class="article-block">
-                            <div class="article-clause"><strong>Статья 5.</strong> Права и свободы человека в СПБ признаются и гарантируются в той мере, в какой они не противоречат воле Царя и интересам государства.</div>
-                            <div class="article-clause"><strong>Статья 5.2.</strong> Основные права и свободы принадлежат человеку от рождения.</div>
-                            <div class="article-clause"><strong>Статья 5.3.</strong> Осуществление прав и свобод не должно нарушать права и свободы других лиц.</div>
-                            <div class="article-clause"><strong>Статья 6.</strong> Свобода слова гарантируется, за исключением случаев оскорбления власти, подрыва государственного строя или призывов к насилию.</div>
-                            <div class="article-clause"><strong>Статья 6.2.</strong> Запрещается пропаганда, направленная против государства, а также разжигание социальной, расовой или классовой ненависти.</div>
-                            <div class="article-clause"><strong>Статья 7.</strong> Запрещается незаконное завладение, повреждение или уничтожение чужого имущества (грабёж, кража, вандализм).</div>
-                            <div class="article-clause"><strong>Статья 7.2.</strong> Запрещается убийство.</div>
-                            <div class="article-clause"><strong>Статья 7.3.</strong> Запрещается нанесение телесных повреждений.</div>
-                            <div class="article-clause"><strong>Статья 8.</strong> Гражданин обязан беспрекословно подчиняться законным требованиям органов государственной власти и Царя.</div>
-                            <div class="article-clause"><strong>Статья 9.</strong> Гражданин СПБ не может иметь гражданство иностранного государства без специального разрешения.</div>
-                            <div class="article-clause"><strong>Статья 9.2.</strong> Гражданин имеет право на обращение в государственные органы.</div>
-                            <div class="article-clause"><strong>Статья 10.</strong> Каждый гражданин обязан пройти установленную законом службу в Армии СПБ.</div>
-                            <div class="article-clause"><strong>Статья 10.2.</strong> Объявление всеобщей мобилизации является исключительным правом Царя.</div>
-                            <div class="article-clause"><strong>Статья 11.</strong> Деятельность в качестве иностранного агента запрещена.</div>
-                            <div class="article-clause"><strong>Статья 11.2.</strong> Гражданин обязан сообщать о известных ему фактах шпионажа или государственной измены.</div>
-                            <div class="article-clause"><strong>Статья 11.3.</strong> Государственная измена и шпионаж караются смертной казнью.</div>
-                        </div>
-                    </div>
-
-                    <div class="constitution-part">
-                        <div class="chapter-title">Глава 3. Основы правопорядка</div>
-                        <div class="article-block">
-                            <div class="article-clause"><strong>Статья 12.</strong> Убийство наказывается смертной казнью.</div>
-                            <div class="article-clause"><strong>Статья 12.2.</strong> Хищение или порча имущества влекут возмещение ущерба и уголовное наказание.</div>
-                            <div class="article-clause"><strong>Статья 12.3.</strong> Нарушение неприкосновенности жилища запрещено.</div>
-                            <div class="article-clause"><strong>Статья 13.</strong> Мошенничество запрещено и наказывается конфискацией имущества.</div>
-                            <div class="article-clause"><strong>Статья 13.2.</strong> Дача ложных показаний органам власти или Царю является тяжким преступлением.</div>
-                            <div class="article-clause"><strong>Статья 13.3.</strong> Шантаж и вымогательство запрещены.</div>
-                            <div class="article-clause"><strong>Статья 14.</strong> Любое строительство требует разрешения уполномоченных органов власти.</div>
-                            <div class="article-clause"><strong>Статья 14.2.</strong> Повреждение объектов государственной инфраструктуры приравнивается к диверсии.</div>
-                            <div class="article-clause"><strong>Статья 14.3.</strong> Незаконная добыча ресурсов запрещена.</div>
-                            <div class="article-clause"><strong>Статья 15.</strong> Уклонение от мобилизации является государственной изменой и карается смертной казнью.</div>
-                            <div class="article-clause"><strong>Статья 15.2.</strong> Неоказание содействия представителю власти при исполнении обязанностей является преступлением.</div>
-                        </div>
-                    </div>
-
-                    <div class="confirmation-stamp">
-                        <p>Настоящая Конституция утверждена и вступает в законную силу</p>
-                        <div class="date">18 февраля 2026 года</div>
-                        <p>Государственной Думой Кендрессии</p>
-                        <p style="font-style: italic; margin-top: 15px; font-size: 1.1em;">За подписью Великого Правителя Кена</p>
-                    </div>
-                </div>
-
-                <div class="laws-list">
-                    <div class="law-item">
-                        <h3>Закон №1: Форма правления</h3>
-                        <p>Самый главный и первый человек в Кендрессии — её Царь и Правитель Кен Флиш. Его указы, запреты и законы являются первоочередными во всём государстве.</p>
-                    </div>
-
-                    <div class="law-item">
-                        <h3>Закон №1.2: О гражданских обязанностях</h3>
-                        <p>Каждый гражданин должен уважать и чтить Великого Правителя, слушаться его и повиноваться.</p>
-                    </div>
-
-                    <div class="law-item">
-                        <h3>Закон №1.3: Свобода слова</h3>
-                        <p>Критика, оскорбление и нанесение ран и телесных повреждений наказуемо и считается предательством родины.</p>
-                    </div>
-
-                    <div class="law-item">
-                        <h3>Закон №2: Граница</h3>
-                        <p>- Территория закрыта для перемещения. Посещение территории должно быть согласовано с правителем государства. При нахождении на ней мы имеем право вас убить.<br>
-                           - Проплывание в территориальных водах запрещено! Они отмечены на карте.<br>
-                           - Воздушное пространство над государством закрыто.<br>
-                           - Строительство вокруг государства запрещено.</p>
-                    </div>
-                </div>
-            </section>
         </div>
-
-        <!-- Футер -->
-        <footer>
-            <div class="footer-content">
-                <img src="images/kengos-logo.png" alt="КенУслуги" class="footer-logo" onerror="this.style.display='none'">
-                <p>© 2025-2026 КенУслуги | Государственный портал Кендрессии</p>
-                <div class="signature">Кен</div>
-                <div class="footer-links">
-                    <a href="#">О портале</a>
-                    <a href="#">Поддержка</a>
-                    <a href="https://t.me/AmethystSMPChannel">AmethystSMP</a>
-                </div>
-            </div>
-        </footer>
     </div>
 
+    <div class="container">
+        <!-- Кнопка подачи документов -->
+        <div class="action-button">
+            <button class="doc-button" onclick="openModal()">📄 ПОДАТЬ ДОКУМЕНТЫ</button>
+        </div>
+
+        <!-- Модальное окно -->
+        <div class="modal" id="docModal" onclick="closeModal(event)">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+                <h2 class="modal-title">Получение гражданства</h2>
+                <div class="modal-text">
+                    <p>Для получения гражданства Кендрессии, обратитесь в чат с представителем власти.</p>
+                    <p style="margin-top: 20px;"><strong>Процедура:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Напишите в общий чат сервера</li>
+                        <li>Упомяните @Кен или любого модератора</li>
+                        <li>Ожидайте ответа от представителя власти</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Информация -->
+        <section id="info" class="section">
+            <h2 class="section-title">ИНФОРМАЦИЯ</h2>
+            <div class="info-grid">
+                <div class="info-block">
+                    <h3>Кендрессия</h3>
+                    <ul>
+                        <li><strong>Царь Кендрессии:</strong> Кен Флиш</li>
+                        <li><strong>Форма правления:</strong> Диктатура</li>
+                        <li><strong>Дата основания:</strong> С момента создания AmethystSMP</li>
+                    </ul>
+                </div>
+                <div class="info-block">
+                    <h3>О Кендрессии</h3>
+                    <ul>
+                        <li>Одно из самых первых государство</li>
+                        <li>Самое влиятельное и сильное государство</li>
+                        <li>Развитая экономика и порядок везде</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Новости -->
+        <section id="news" class="section">
+            <h2 class="section-title">НОВОСТИ</h2>
+            <div class="news-container">
+                <div class="news-carousel" id="newsCarousel"></div>
+            </div>
+        </section>
+
+        <!-- Лидер -->
+        <section id="leader" class="section">
+            <h2 class="section-title">ЛИДЕР</h2>
+            <div class="leader-section">
+                <img src="images/ken-poster.png" alt="Кен Флиш" class="leader-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjI1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSIxMjUiIHk9IjEyNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+S0VOIEZMSVNIPC90ZXh0Pjwvc3ZnPg=='>
+                <div class="leader-name">Кен Флиш</div>
+                <div class="leader-title">Великий Правитель, Отец, Основоположник и руководитель Великого Государства Кендрессии</div>
+            </div>
+        </section>
+
+        <!-- Конституция -->
+        <section id="constitution" class="section">
+            <h2 class="section-title">КОНСТИТУЦИЯ И ЗАКОНЫ</h2>
+
+            <div class="constitution-container">
+                <div class="constitution-header">КОНСТИТУЦИЯ СОЮЗА ПАРТИИ БОМЖЕЙ И БОГАЧЕЙ (СПБ)</div>
+                
+                <div class="constitution-part">
+                    <div class="chapter-title">РАЗДЕЛ ПЕРВЫЙ. ОСНОВНЫЕ ПОЛОЖЕНИЯ</div>
+                    <div class="article-clause"><strong>Статья 1.</strong> Союз Партии Бомжей и Богачей (СПБ) является суверенным государством с диктатурой.</div>
+                    <div class="article-clause"><strong>Статья 1.2.</strong> Наименования «Кендрессия» и «СПБ» являются равнозначными.</div>
+                    <div class="article-clause"><strong>Статья 2.</strong> Граждане СПБ обладают личной свободой и неприкосновенностью.</div>
+                    <div class="article-clause"><strong>Статья 2.2.</strong> Агрессия, оскорбление, причинение вреда здоровью или имуществу гражданина являются преступлениями и преследуются по закону.</div>
+                    <div class="article-clause"><strong>Статья 2.3.</strong> Акт агрессии, совершённый иностранным государством или его гражданином, является основанием для объявления состояния войны.</div>
+                    <div class="article-clause"><strong>Статья 3.</strong> Конституция СПБ обладает высшей юридической силой и является незыблемым законом.</div>
+                    <div class="article-clause"><strong>Статья 3.2.</strong> Действие Конституции распространяется на всю территорию СПБ.</div>
+                    <div class="article-clause"><strong>Статья 3.3.</strong> СПБ гарантирует целостность и неприкосновенность своей территории.</div>
+                    <div class="article-clause"><strong>Статья 4.</strong> Земля и природные ресурсы являются основой жизнедеятельности государства.</div>
+                    <div class="article-clause"><strong>Статья 4.2.</strong> Ресурсы находятся под верховным контролем государства. Право пользования предоставляется в соответствии с законом.</div>
+                </div>
+
+                <div class="constitution-part">
+                    <div class="chapter-title">Глава 2. Права, свободы и обязанности человека и гражданина</div>
+                    <div class="article-clause"><strong>Статья 5.</strong> Права и свободы человека в СПБ признаются и гарантируются в той мере, в какой они не противоречат воле Царя и интересам государства.</div>
+                    <div class="article-clause"><strong>Статья 5.2.</strong> Основные права и свободы принадлежат человеку от рождения.</div>
+                    <div class="article-clause"><strong>Статья 5.3.</strong> Осуществление прав и свобод не должно нарушать права и свободы других лиц.</div>
+                    <div class="article-clause"><strong>Статья 6.</strong> Свобода слова гарантируется, за исключением случаев оскорбления власти, подрыва государственного строя или призывов к насилию.</div>
+                    <div class="article-clause"><strong>Статья 6.2.</strong> Запрещается пропаганда, направленная против государства, а также разжигание социальной, расовой или классовой ненависти.</div>
+                    <div class="article-clause"><strong>Статья 7.</strong> Запрещается незаконное завладение, повреждение или уничтожение чужого имущества (грабёж, кража, вандализм).</div>
+                    <div class="article-clause"><strong>Статья 7.2.</strong> Запрещается убийство.</div>
+                    <div class="article-clause"><strong>Статья 7.3.</strong> Запрещается нанесение телесных повреждений.</div>
+                    <div class="article-clause"><strong>Статья 8.</strong> Гражданин обязан беспрекословно подчиняться законным требованиям органов государственной власти и Царя.</div>
+                    <div class="article-clause"><strong>Статья 9.</strong> Гражданин СПБ не может иметь гражданство иностранного государства без специального разрешения.</div>
+                    <div class="article-clause"><strong>Статья 9.2.</strong> Гражданин имеет право на обращение в государственные органы.</div>
+                    <div class="article-clause"><strong>Статья 10.</strong> Каждый гражданин обязан пройти установленную законом службу в Армии СПБ.</div>
+                    <div class="article-clause"><strong>Статья 10.2.</strong> Объявление всеобщей мобилизации является исключительным правом Царя.</div>
+                    <div class="article-clause"><strong>Статья 11.</strong> Деятельность в качестве иностранного агента запрещена.</div>
+                    <div class="article-clause"><strong>Статья 11.2.</strong> Гражданин обязан сообщать о известных ему фактах шпионажа или государственной измены.</div>
+                    <div class="article-clause"><strong>Статья 11.3.</strong> Государственная измена и шпионаж караются смертной казнью.</div>
+                </div>
+
+                <div class="constitution-part">
+                    <div class="chapter-title">Глава 3. Основы правопорядка</div>
+                    <div class="article-clause"><strong>Статья 12.</strong> Убийство наказывается смертной казнью.</div>
+                    <div class="article-clause"><strong>Статья 12.2.</strong> Хищение или порча имущества влекут возмещение ущерба и уголовное наказание.</div>
+                    <div class="article-clause"><strong>Статья 12.3.</strong> Нарушение неприкосновенности жилища запрещено.</div>
+                    <div class="article-clause"><strong>Статья 13.</strong> Мошенничество запрещено и наказывается конфискацией имущества.</div>
+                    <div class="article-clause"><strong>Статья 13.2.</strong> Дача ложных показаний органам власти или Царю является тяжким преступлением.</div>
+                    <div class="article-clause"><strong>Статья 13.3.</strong> Шантаж и вымогательство запрещены.</div>
+                    <div class="article-clause"><strong>Статья 14.</strong> Любое строительство требует разрешения уполномоченных органов власти.</div>
+                    <div class="article-clause"><strong>Статья 14.2.</strong> Повреждение объектов государственной инфраструктуры приравнивается к диверсии.</div>
+                    <div class="article-clause"><strong>Статья 14.3.</strong> Незаконная добыча ресурсов запрещена.</div>
+                    <div class="article-clause"><strong>Статья 15.</strong> Уклонение от мобилизации является государственной изменой и карается смертной казнью.</div>
+                    <div class="article-clause"><strong>Статья 15.2.</strong> Неоказание содействия представителю власти при исполнении обязанностей является преступлением.</div>
+                </div>
+
+                <div class="confirmation-stamp">
+                    <p>Настоящая Конституция утверждена и вступает в законную силу</p>
+                    <div class="date">18 февраля 2026 года</div>
+                    <p>Государственной Думой Кендрессии</p>
+                    <p style="font-style: italic; margin-top: 15px;">За подписью Великого Правителя Кена</p>
+                </div>
+            </div>
+
+            <div class="laws-list">
+                <div class="law-item">
+                    <h3>Закон №1: Форма правления</h3>
+                    <p>Самый главный и первый человек в Кендрессии — её Царь и Правитель Кен Флиш. Его указы, запреты и законы являются первоочередными во всём государстве.</p>
+                </div>
+
+                <div class="law-item">
+                    <h3>Закон №1.2: О гражданских обязанностях</h3>
+                    <p>Каждый гражданин должен уважать и чтить Великого Правителя, слушаться его и повиноваться.</p>
+                </div>
+
+                <div class="law-item">
+                    <h3>Закон №1.3: Свобода слова</h3>
+                    <p>Критика, оскорбление и нанесение ран и телесных повреждений наказуемо и считается предательством родины.</p>
+                </div>
+
+                <div class="law-item">
+                    <h3>Закон №2: Граница</h3>
+                    <p>- Территория закрыта для перемещения. Посещение территории должно быть согласовано с правителем государства. При нахождении на ней мы имеем право вас убить.<br>
+                       - Проплывание в территориальных водах запрещено! Они отмечены на карте.<br>
+                       - Воздушное пространство над государством закрыто.<br>
+                       - Строительство вокруг государства запрещено.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Реестр -->
+        <section id="registry" class="section">
+            <h2 class="section-title">РЕЕСТР</h2>
+            <div class="registry-list">
+                <!-- Платон -->
+                <div class="person-card">
+                    <div class="card-header">
+                        <span class="status status-wanted">В РОЗЫСКЕ</span>
+                        <span class="category">Иностранный агент</span>
+                        <span class="category">Экстремист</span>
+                    </div>
+                    <div class="person-name">❗️Платон❗️</div>
+                    <div class="person-detail"><strong>Причина:</strong> Распространение экстремисткой идеологии, подрыв государственных устоев</div>
+                    <div class="person-detail"><strong>Статус:</strong> Объявлен в розыск</div>
+                    <div class="person-detail"><strong>Дата внесения:</strong> 02.02.2026</div>
+                </div>
+
+                <!-- Алочность -->
+                <div class="person-card">
+                    <div class="card-header">
+                        <span class="status status-wanted">В РОЗЫСКЕ</span>
+                        <span class="category">Иностранный агент</span>
+                        <span class="category">Оскорбитель власти</span>
+                    </div>
+                    <div class="person-name">❗️Алочность❗️</div>
+                    <div class="person-detail"><strong>Причина:</strong> Систематические оскорбления Великого Правителя и государственных институтов</div>
+                    <div class="person-detail"><strong>Статус:</strong> Объявлен в розыск</div>
+                    <div class="person-detail"><strong>Дата внесения:</strong> 02.02.2026</div>
+                </div>
+
+                <!-- Shnaps -->
+                <div class="person-card">
+                    <div class="card-header">
+                        <span class="status status-wanted">В РОЗЫСКЕ</span>
+                        <span class="category">Иностранный агент</span>
+                    </div>
+                    <div class="person-name">❗️Shnaps❗️</div>
+                    <div class="person-detail"><strong>Причина:</strong> Многочисленные оскорбления и нарушения правил</div>
+                    <div class="person-detail"><strong>Статус:</strong> Объявлен в розыск</div>
+                    <div class="person-detail"><strong>Дата внесения:</strong> Не зафиксирована</div>
+                </div>
+
+                <!-- Drakon -->
+                <div class="person-card">
+                    <div class="card-header">
+                        <span class="status status-wanted">В РОЗЫСКЕ</span>
+                        <span class="category">Иностранный агент</span>
+                    </div>
+                    <div class="person-name">❗️Drakon❗️</div>
+                    <div class="person-detail"><strong>Причина:</strong> Проживание за пределами государства и получение средств от представителей власти</div>
+                    <div class="person-detail"><strong>Статус:</strong> Объявлен в розыск</div>
+                    <div class="person-detail"><strong>Дата внесения:</strong> Не зафиксирована</div>
+                </div>
+
+                <!-- Skelle -->
+                <div class="person-card">
+                    <div class="card-header">
+                        <span class="status status-wanted">В РОЗЫСКЕ</span>
+                        <span class="category">Иностранный агент</span>
+                    </div>
+                    <div class="person-name">❗️Skelle❗️</div>
+                    <div class="person-detail"><strong>Причина:</strong> Незаконная деятельность против государства</div>
+                    <div class="person-detail"><strong>Статус:</strong> В розыске</div>
+                    <div class="person-detail"><strong>Дата внесения:</strong> 30.10.2025</div>
+                </div>
+
+                <!-- Da1loks -->
+                <div class="person-card">
+                    <div class="card-header">
+                        <span class="status status-wanted">В РОЗЫСКЕ</span>
+                        <span class="category">Иностранный агент</span>
+                    </div>
+                    <div class="person-name">❗️Da1loks❗️</div>
+                    <div class="person-detail"><strong>Причина:</strong> Террористические действия, критика, военные действия и незаконные убийства на территории Кендресси</div>
+                    <div class="person-detail"><strong>Статус:</strong> В статусе снятия санкций</div>
+                    <div class="person-detail"><strong>Дата внесения:</strong> Не зафиксирована</div>
+                </div>
+
+                <!-- Ратмир Кабанов -->
+                <div class="person-card">
+                    <div class="card-header">
+                        <span class="status status-wanted">В РОЗЫСКЕ</span>
+                        <span class="category">Иностранный агент</span>
+                    </div>
+                    <div class="person-name">❗️ратмир кабанов❗️</div>
+                    <div class="person-detail"><strong>Причина:</strong> Критика и оскорбления Власти Великой Кендрессии</div>
+                    <div class="person-detail"><strong>Статус:</strong> В розыске</div>
+                    <div class="person-detail"><strong>Дата внесения:</strong> Не зафиксирована</div>
+                </div>
+
+                <!-- termoqderka -->
+                <div class="person-card">
+                    <div class="card-header">
+                        <span class="status status-wanted">В РОЗЫСКЕ</span>
+                        <span class="category">Иностранный агент</span>
+                    </div>
+                    <div class="person-name">❗️termoqderka❗️</div>
+                    <div class="person-detail"><strong>Причина:</strong> Критика и оскорбления Власти Великой Кендрессии</div>
+                    <div class="person-detail"><strong>Статус:</strong> В розыске</div>
+                    <div class="person-detail"><strong>Дата внесения:</strong> Не зафиксирована</div>
+                </div>
+
+                <!-- SuperSlime -->
+                <div class="person-card">
+                    <div class="card-header">
+                        <span class="status status-wanted">В РОЗЫСКЕ</span>
+                        <span class="category">Иностранный агент</span>
+                    </div>
+                    <div class="person-name">❗️SuperSlime❗️</div>
+                    <div class="person-detail"><strong>Причина:</strong> Критика и оскорбления Власти Великой Кендрессии</div>
+                    <div class="person-detail"><strong>Статус:</strong> В розыске</div>
+                    <div class="person-detail"><strong>Дата внесения:</strong> Не зафиксирована</div>
+                </div>
+
+                <!-- Lil Testi -->
+                <div class="person-card">
+                    <div class="card-header">
+                        <span class="status status-wanted">В РОЗЫСКЕ</span>
+                        <span class="category">Иностранный агент</span>
+                    </div>
+                    <div class="person-name">❗️Lil Testi❗️</div>
+                    <div class="person-detail"><strong>Причина:</strong> Многочисленные оскорбления и нарушения правил</div>
+                    <div class="person-detail"><strong>Статус:</strong> Объявлен в розыск</div>
+                    <div class="person-detail"><strong>Дата внесения:</strong> Не зафиксирована</div>
+                </div>
+
+                <!-- Весь сервер -->
+                <div class="person-card">
+                    <div class="card-header">
+                        <span class="status status-wanted">В РОЗЫСКЕ</span>
+                        <span class="category">Иностранный агент</span>
+                    </div>
+                    <div class="person-name">❗️Весь Сервер AmethystSMP❗️</div>
+                    <div class="person-detail"><strong>Причина:</strong> Для профилактики</div>
+                    <div class="person-detail"><strong>Дата внесения:</strong> 27.10.2025</div>
+                </div>
+
+                <!-- WaterFlane -->
+                <div class="person-card">
+                    <div class="card-header">
+                        <span class="status status-wanted">В РОЗЫСКЕ</span>
+                        <span class="category">Иностранный агент</span>
+                        <span class="category">Интернет террорист</span>
+                    </div>
+                    <div class="person-name">❗️WaterFlane❗️</div>
+                    <div class="person-detail"><strong>Причина:</strong> Многочисленные нарушения правил, клевета и критика правительства</div>
+                    <div class="person-detail"><strong>Статус:</strong> Объявлен в розыск</div>
+                    <div class="person-detail"><strong>Дата внесения:</strong> Не зафиксирована</div>
+                </div>
+
+                <!-- Символика -->
+                <div class="person-card">
+                    <div class="card-header">
+                        <span class="status status-wanted">ЗАПРЕЩЕНО</span>
+                        <span class="category">Запрещённая символика</span>
+                    </div>
+                    <div class="person-name">❗️✧ℂ𝕙𝕖𝕝𝕝◦❗️</div>
+                    <div class="person-detail"><strong>Причина:</strong> Признано экстремистской символикой</div>
+                    <div class="person-detail"><strong>Статус:</strong> Запрещено</div>
+                    <div class="person-detail"><strong>Дата внесения:</strong> 19.11.2025</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <img src="images/kengos-logo.png" alt="КенУслуги" class="footer-logo" onerror="this.style.display='none'">
+            <p>© 2025-2026 КенУслуги | Государственный портал Кендрессии</p>
+            <div class="signature">Кен</div>
+            <div style="font-size: 12px; margin-top: 20px; opacity: 0.8;">
+                Игровой проект сервера AmethystSMP. Все события и персонажи вымышлены.
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // Новости (как в первом коде)
         const newsData = [
             {
                 image: "images/news1.jpg",
@@ -1073,7 +1022,6 @@
             const carousel = document.getElementById('newsCarousel');
             if (!carousel) return;
 
-            // Тройная прокрутка для бесконечности
             for (let i = 0; i < 3; i++) {
                 newsData.forEach(news => {
                     const slide = document.createElement('div');
@@ -1123,7 +1071,6 @@
             }, 100);
         }
 
-        // Подсветка активного пункта меню
         function setupActiveNav() {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-link');
@@ -1148,11 +1095,13 @@
             });
         }
 
-        // Иконка вкладки
-        function setFavicon() {
-            const link = document.querySelector("link[rel~='icon']");
-            if (link) {
-                link.href = "images/kengos-logo.png";
+        function openModal() {
+            document.getElementById('docModal').classList.add('active');
+        }
+
+        function closeModal(e) {
+            if (!e || e.target.classList.contains('modal') || e.target.classList.contains('modal-close')) {
+                document.getElementById('docModal').classList.remove('active');
             }
         }
 
@@ -1160,7 +1109,6 @@
             createCarousel();
             setupCarouselScroll();
             setupActiveNav();
-            setFavicon();
         });
     </script>
 </body>
