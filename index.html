@@ -527,6 +527,31 @@
             transform: scale(1.02);
         }
 
+        /* Кнопка продолжения */
+        .continue-btn {
+            background: var(--gos-blue);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.3em;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid var(--gos-red);
+            width: 100%;
+            margin-top: 20px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .continue-btn:hover {
+            background: var(--gos-red);
+            border-color: var(--gos-blue);
+            transform: scale(1.02);
+        }
+
         .registry-list {
             display: flex;
             flex-direction: column;
@@ -790,6 +815,7 @@
                 <button class="doc-button" onclick="openModal()">📄 ПОДАТЬ ДОКУМЕНТЫ</button>
             </div>
 
+            <!-- Модальное окно для гражданства -->
             <div class="modal" id="docModal" onclick="closeModal(event)">
                 <div class="modal-content" onclick="event.stopPropagation()">
                     <span class="modal-close" onclick="closeModal()">&times;</span>
@@ -803,6 +829,16 @@
                             <li>Ожидайте ответа от представителя власти</li>
                         </ul>
                     </div>
+                </div>
+            </div>
+
+            <!-- Модальное окно для повестки -->
+            <div class="modal" id="povestkaModal" onclick="closePovestkaModal(event)">
+                <div class="modal-content" onclick="event.stopPropagation()">
+                    <span class="modal-close" onclick="closePovestkaModal()">&times;</span>
+                    <h2 class="modal-title">⚡ ПОВЕСТКА ⚡</h2>
+                    <div class="modal-text" id="povestkaText"></div>
+                    <a href="https://contract.gosuslugi.ru/" target="_blank" class="continue-btn">ПРОДОЛЖИТЬ</a>
                 </div>
             </div>
 
@@ -844,7 +880,7 @@
                 </div>
             </section>
 
-            <!-- Секция СЛУЖБА С ПРАНКОМ -->
+            <!-- Секция СЛУЖБА -->
             <section id="service" class="section">
                 <h2 class="section-title">СЛУЖБА ПО КОНТРАКТУ</h2>
                 <div class="service-section">
@@ -1259,6 +1295,30 @@
             }
         }
 
+        function openPovestkaModal(name, age, telegram) {
+            const modal = document.getElementById('povestkaModal');
+            const textElement = document.getElementById('povestkaText');
+            
+            const currentDate = new Date().toLocaleDateString('ru-RU');
+            textElement.innerHTML = `
+                <p><strong>Поздравляем, ${name} (${age} лет, ${telegram})!</strong></p>
+                <p>Вы успешно записаны на военную службу по контракту.</p>
+                <p>Для выполнения контракта необходимо явиться в ближайший военкомат РФ в течение 3 дней.</p>
+                <p>При себе иметь: паспорт, военный билет, телефон.</p>
+                <p style="margin-top: 20px;"><strong>Подпись:</strong> Военный комиссариат РФ</p>
+                <p><strong>Дата:</strong> ${currentDate}</p>
+                <p style="margin-top: 15px; font-size: 1.2em; color: var(--gos-red);">🇷🇺 Служба - долг и честь! 🇷🇺</p>
+            `;
+            
+            modal.classList.add('active');
+        }
+
+        function closePovestkaModal(e) {
+            if (!e || e.target.classList.contains('modal') || e.target.classList.contains('modal-close')) {
+                document.getElementById('povestkaModal').classList.remove('active');
+            }
+        }
+
         function showNotification(message) {
             const notif = document.getElementById('notification');
             notif.textContent = message;
@@ -1269,7 +1329,7 @@
             }, 3000);
         }
 
-        // ПРАНК: при отправке формы скачивается файл с повесткой
+        // Обработка формы службы
         document.addEventListener('DOMContentLoaded', () => {
             createCarousel();
             setupCarouselScroll();
@@ -1284,34 +1344,7 @@
                     const age = document.getElementById('age').value;
                     const telegram = document.getElementById('telegram').value;
                     
-                    // Создаем текст для файла
-                    const fileContent = `⚡ ПОВЕСТКА ⚡
-
-Поздравляем, ${name} (${age} лет, ${telegram})!
-
-Вы успешно записаны на военную службу по контракту.
-
-Для выполнения контракта необходимо явиться в ближайший военкомат РФ в течение 3 дней.
-
-При себе иметь: паспорт, военный билет, телефон.
-
-Подпись: Военный комиссариат РФ
-Дата: ${new Date().toLocaleDateString('ru-RU')}
-
-🇷🇺 Служба - долг и честь! 🇷🇺`;
-                    
-                    // Создаем и скачиваем файл
-                    const blob = new Blob([fileContent], { type: 'text/plain;charset=utf-8' });
-                    const url = URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = `povestka_${name}_${Date.now()}.txt`;
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                    URL.revokeObjectURL(url);
-                    
-                    showNotification(`✓ Повестка для ${name} сформирована!`);
+                    openPovestkaModal(name, age, telegram);
                     
                     form.reset();
                 });
