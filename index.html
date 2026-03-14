@@ -843,36 +843,38 @@
                 </div>
             </section>
 
-            <!-- Обновленная секция СЛУЖБА С АНКЕТОЙ -->
+                        <!-- Обновленная секция СЛУЖБА С АНКЕТОЙ (УВЕЛИЧЕНО) -->
             <section id="service" class="section">
                 <h2 class="section-title">СЛУЖБА ПО КОНТРАКТУ</h2>
                 <div class="service-section">
                     <div class="service-header">
-                        <img src="images/service-photo.png" alt="Служба в СПБ" class="service-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSIxNTAiIHk9IjExMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+0KHQu9GD0LbQsNC90LjQtSDQoNC+0LTQuNC90Ys8L3RleHQ+PC9zdmc+'>
-                        <div class="service-text">СЛУЖИ В СПБ</div>
+                        <!-- ФОТО ТЕПЕРЬ БОЛЬШОЕ - 500px -->
+                        <img src="images/service-photo.png" alt="Служба в СПБ" class="service-image" style="max-width: 500px; width: 100%; border-radius: 20px; border: 4px solid var(--gos-red); margin: 0 auto 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); display: block;">
+                        <!-- ТЕКСТ БОЛЬШЕ - 3em -->
+                        <div class="service-text" style="font-size: 3em; font-weight: 800; color: var(--gos-red); margin: 20px 0; text-transform: uppercase; letter-spacing: 2px;">СЛУЖИ В СПБ</div>
                     </div>
 
-                    <div class="application-form">
-                        <h3 class="form-title">Запись на службу</h3>
+                    <div class="application-form" style="max-width: 600px; margin: 30px auto 0; background: white; padding: 40px; border-radius: 16px; border: 2px solid var(--gos-blue);">
+                        <h3 class="form-title" style="color: var(--gos-blue); font-size: 1.8em; margin-bottom: 25px; text-align: center;">Запись на службу</h3>
                         <form id="serviceForm">
-                            <div class="form-group">
-                                <label for="name">Имя</label>
-                                <input type="text" id="name" placeholder="Введите ваше имя" required>
+                            <div class="form-group" style="margin-bottom: 25px;">
+                                <label for="name" style="display: block; margin-bottom: 10px; color: var(--gos-blue); font-weight: 600; font-size: 1.1em;">Имя</label>
+                                <input type="text" id="name" placeholder="Введите ваше имя" required style="width: 100%; padding: 15px 20px; border: 2px solid var(--border-color); border-radius: 10px; font-size: 1.1em; transition: border-color 0.3s;">
                             </div>
-                            <div class="form-group">
-                                <label for="age">Возраст</label>
-                                <input type="number" id="age" placeholder="Введите ваш возраст" min="14" max="100" required>
+                            <div class="form-group" style="margin-bottom: 25px;">
+                                <label for="age" style="display: block; margin-bottom: 10px; color: var(--gos-blue); font-weight: 600; font-size: 1.1em;">Возраст</label>
+                                <input type="number" id="age" placeholder="Введите ваш возраст" min="14" max="100" required style="width: 100%; padding: 15px 20px; border: 2px solid var(--border-color); border-radius: 10px; font-size: 1.1em;">
                             </div>
-                            <div class="form-group">
-                                <label for="telegram">Telegram</label>
-                                <input type="text" id="telegram" placeholder="@username" required>
+                            <div class="form-group" style="margin-bottom: 30px;">
+                                <label for="telegram" style="display: block; margin-bottom: 10px; color: var(--gos-blue); font-weight: 600; font-size: 1.1em;">Telegram</label>
+                                <input type="text" id="telegram" placeholder="@username" required style="width: 100%; padding: 15px 20px; border: 2px solid var(--border-color); border-radius: 10px; font-size: 1.1em;">
                             </div>
-                            <button type="submit" class="submit-btn">ЗАПИСАТЬСЯ</button>
+                            <button type="submit" class="submit-btn" style="background: var(--gos-red); color: white; border: none; padding: 18px 30px; font-size: 1.4em; font-weight: 700; border-radius: 12px; cursor: pointer; transition: all 0.3s; border: 2px solid var(--gos-blue); width: 100%;">ЗАПИСАТЬСЯ</button>
                         </form>
                     </div>
                 </div>
             </section>
-
+        
             <section id="constitution" class="section">
                 <h2 class="section-title">КОНСТИТУЦИЯ И ЗАКОНЫ</h2>
 
