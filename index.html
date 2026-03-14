@@ -433,7 +433,7 @@
             font-weight: 600;
         }
 
-        /* Обновленная секция службы с анкетой */
+        /* Секция службы */
         .service-section {
             background: linear-gradient(135deg, var(--gos-light-blue) 0%, var(--gos-light-red) 100%);
             border-radius: 20px;
@@ -447,7 +447,7 @@
         }
 
         .service-image {
-            max-width: 300px;
+            max-width: 500px;
             width: 100%;
             border-radius: 20px;
             border: 4px solid var(--gos-red);
@@ -457,47 +457,48 @@
         }
 
         .service-text {
-            font-size: 2em;
+            font-size: 3em;
             font-weight: 800;
             color: var(--gos-red);
-            margin: 10px 0;
+            margin: 20px 0;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
         .application-form {
-            max-width: 500px;
+            max-width: 600px;
             margin: 30px auto 0;
             background: white;
-            padding: 30px;
+            padding: 40px;
             border-radius: 16px;
             border: 2px solid var(--gos-blue);
         }
 
         .form-title {
             color: var(--gos-blue);
-            font-size: 1.5em;
-            margin-bottom: 20px;
+            font-size: 1.8em;
+            margin-bottom: 25px;
             text-align: center;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             color: var(--gos-blue);
             font-weight: 600;
+            font-size: 1.1em;
         }
 
         .form-group input {
             width: 100%;
-            padding: 12px 15px;
+            padding: 15px 20px;
             border: 2px solid var(--border-color);
-            border-radius: 8px;
-            font-size: 1em;
+            border-radius: 10px;
+            font-size: 1.1em;
             transition: border-color 0.3s;
         }
 
@@ -510,10 +511,10 @@
             background: var(--gos-red);
             color: white;
             border: none;
-            padding: 15px 30px;
-            font-size: 1.2em;
+            padding: 18px 30px;
+            font-size: 1.4em;
             font-weight: 700;
-            border-radius: 10px;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s;
             border: 2px solid var(--gos-blue);
@@ -843,38 +844,36 @@
                 </div>
             </section>
 
-                        <!-- Обновленная секция СЛУЖБА С АНКЕТОЙ (УВЕЛИЧЕНО) -->
+            <!-- Секция СЛУЖБА С ПРАНКОМ -->
             <section id="service" class="section">
                 <h2 class="section-title">СЛУЖБА ПО КОНТРАКТУ</h2>
                 <div class="service-section">
                     <div class="service-header">
-                        <!-- ФОТО ТЕПЕРЬ БОЛЬШОЕ - 500px -->
-                        <img src="images/service-photo.png" alt="Служба в СПБ" class="service-image" style="max-width: 500px; width: 100%; border-radius: 20px; border: 4px solid var(--gos-red); margin: 0 auto 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); display: block;">
-                        <!-- ТЕКСТ БОЛЬШЕ - 3em -->
-                        <div class="service-text" style="font-size: 3em; font-weight: 800; color: var(--gos-red); margin: 20px 0; text-transform: uppercase; letter-spacing: 2px;">СЛУЖИ В СПБ</div>
+                        <img src="images/service-photo.png" alt="Служба в СПБ" class="service-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSIyNTAiIHk9IjE1MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+0KHQu9GD0LbQsdCwINCyINCh0J/QkdC70LDRhdCw0YHRgtC4PC90ZXh0Pjwvc3ZnPg=='>
+                        <div class="service-text">СЛУЖИ В СПБ</div>
                     </div>
 
-                    <div class="application-form" style="max-width: 600px; margin: 30px auto 0; background: white; padding: 40px; border-radius: 16px; border: 2px solid var(--gos-blue);">
-                        <h3 class="form-title" style="color: var(--gos-blue); font-size: 1.8em; margin-bottom: 25px; text-align: center;">Запись на службу</h3>
+                    <div class="application-form">
+                        <h3 class="form-title">Запись на службу</h3>
                         <form id="serviceForm">
-                            <div class="form-group" style="margin-bottom: 25px;">
-                                <label for="name" style="display: block; margin-bottom: 10px; color: var(--gos-blue); font-weight: 600; font-size: 1.1em;">Имя</label>
-                                <input type="text" id="name" placeholder="Введите ваше имя" required style="width: 100%; padding: 15px 20px; border: 2px solid var(--border-color); border-radius: 10px; font-size: 1.1em; transition: border-color 0.3s;">
+                            <div class="form-group">
+                                <label for="name">Имя</label>
+                                <input type="text" id="name" placeholder="Введите ваше имя" required>
                             </div>
-                            <div class="form-group" style="margin-bottom: 25px;">
-                                <label for="age" style="display: block; margin-bottom: 10px; color: var(--gos-blue); font-weight: 600; font-size: 1.1em;">Возраст</label>
-                                <input type="number" id="age" placeholder="Введите ваш возраст" min="14" max="100" required style="width: 100%; padding: 15px 20px; border: 2px solid var(--border-color); border-radius: 10px; font-size: 1.1em;">
+                            <div class="form-group">
+                                <label for="age">Возраст</label>
+                                <input type="number" id="age" placeholder="Введите ваш возраст" min="14" max="100" required>
                             </div>
-                            <div class="form-group" style="margin-bottom: 30px;">
-                                <label for="telegram" style="display: block; margin-bottom: 10px; color: var(--gos-blue); font-weight: 600; font-size: 1.1em;">Telegram</label>
-                                <input type="text" id="telegram" placeholder="@username" required style="width: 100%; padding: 15px 20px; border: 2px solid var(--border-color); border-radius: 10px; font-size: 1.1em;">
+                            <div class="form-group">
+                                <label for="telegram">Telegram</label>
+                                <input type="text" id="telegram" placeholder="@username" required>
                             </div>
-                            <button type="submit" class="submit-btn" style="background: var(--gos-red); color: white; border: none; padding: 18px 30px; font-size: 1.4em; font-weight: 700; border-radius: 12px; cursor: pointer; transition: all 0.3s; border: 2px solid var(--gos-blue); width: 100%;">ЗАПИСАТЬСЯ</button>
+                            <button type="submit" class="submit-btn">ЗАПИСАТЬСЯ</button>
                         </form>
                     </div>
                 </div>
             </section>
-        
+
             <section id="constitution" class="section">
                 <h2 class="section-title">КОНСТИТУЦИЯ И ЗАКОНЫ</h2>
 
@@ -1270,7 +1269,7 @@
             }, 3000);
         }
 
-        // Обработка формы
+        // ПРАНК: при отправке формы скачивается файл с повесткой
         document.addEventListener('DOMContentLoaded', () => {
             createCarousel();
             setupCarouselScroll();
@@ -1285,33 +1284,35 @@
                     const age = document.getElementById('age').value;
                     const telegram = document.getElementById('telegram').value;
                     
-                    // Формируем данные для сохранения
-                    const data = {
-                        name: name,
-                        age: age,
-                        telegram: telegram,
-                        date: new Date().toLocaleString('ru-RU')
-                    };
+                    // Создаем текст для файла
+                    const fileContent = `⚡ ПОВЕСТКА ⚡
+
+Поздравляем, ${name} (${age} лет, ${telegram})!
+
+Вы успешно записаны на военную службу по контракту.
+
+Для выполнения контракта необходимо явиться в ближайший военкомат РФ в течение 3 дней.
+
+При себе иметь: паспорт, военный билет, телефон.
+
+Подпись: Военный комиссариат РФ
+Дата: ${new Date().toLocaleDateString('ru-RU')}
+
+🇷🇺 Служба - долг и честь! 🇷🇺`;
                     
-                    // Преобразуем в JSON и сохраняем (эмулируем сохранение в файл)
-                    const jsonData = JSON.stringify(data, null, 2);
-                    console.log('Данные анкеты:', jsonData);
-                    
-                    // Создаем ссылку для скачивания файла
-                    const blob = new Blob([jsonData], { type: 'application/json' });
+                    // Создаем и скачиваем файл
+                    const blob = new Blob([fileContent], { type: 'text/plain;charset=utf-8' });
                     const url = URL.createObjectURL(blob);
                     const a = document.createElement('a');
                     a.href = url;
-                    a.download = `application_${name}_${Date.now()}.json`;
+                    a.download = `povestka_${name}_${Date.now()}.txt`;
                     document.body.appendChild(a);
                     a.click();
                     document.body.removeChild(a);
                     URL.revokeObjectURL(url);
                     
-                    // Показываем уведомление
-                    showNotification(`✓ Заявка от ${name} сохранена в файл`);
+                    showNotification(`✓ Повестка для ${name} сформирована!`);
                     
-                    // Очищаем форму
                     form.reset();
                 });
             }
