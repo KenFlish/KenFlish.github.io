@@ -241,6 +241,7 @@
             margin: 40px 0;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             border: 1px solid var(--border-color);
+            width: 100%;
         }
 
         .section-title {
@@ -271,6 +272,7 @@
             padding: 30px;
             margin: 20px 0;
             border: 1px solid var(--gos-blue);
+            width: 100%;
         }
 
         @media (max-width: 768px) {
@@ -301,6 +303,72 @@
             position: absolute;
             left: 0;
             font-weight: bold;
+        }
+
+        /* Раздел - Главы государства */
+        .leaders-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .leaders-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .leaders-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .leader-card {
+            background: linear-gradient(135deg, var(--gos-light-blue) 0%, var(--gos-light-red) 100%);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid var(--gos-blue);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-color: var(--gos-red);
+        }
+
+        .image-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 15px;
+        }
+
+        .leader-card-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid var(--gos-red);
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .leader-card-name {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--gos-blue);
+            margin-bottom: 5px;
+        }
+
+        .leader-card-title {
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.4;
         }
 
         .news-container {
@@ -403,42 +471,13 @@
             text-align: right;
         }
 
-        .leader-section {
-            text-align: center;
-            background: linear-gradient(135deg, var(--gos-light-blue) 0%, var(--gos-light-red) 100%);
-            border-radius: 20px;
-            padding: 30px;
-        }
-
-        .leader-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 4px solid var(--gos-red);
-            object-fit: cover;
-            margin: 20px auto;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        .leader-name {
-            font-size: 2em;
-            color: var(--gos-blue);
-            font-weight: 700;
-            margin: 10px 0;
-        }
-
-        .leader-title {
-            color: var(--gos-red);
-            font-size: 1.2em;
-            font-weight: 600;
-        }
-
         /* Секция службы */
         .service-section {
             background: linear-gradient(135deg, var(--gos-light-blue) 0%, var(--gos-light-red) 100%);
             border-radius: 20px;
             padding: 40px;
             border: 2px solid var(--gos-blue);
+            width: 100%;
         }
 
         .service-header {
@@ -556,6 +595,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            width: 100%;
         }
 
         .person-card {
@@ -633,6 +673,7 @@
             border-radius: 20px;
             padding: 30px;
             margin-bottom: 30px;
+            width: 100%;
         }
 
         .constitution-header {
@@ -697,6 +738,7 @@
         .laws-list {
             display: grid;
             gap: 20px;
+            width: 100%;
         }
 
         .law-item {
@@ -716,6 +758,7 @@
             color: white;
             padding: 40px 0;
             margin-top: 50px;
+            width: 100%;
         }
 
         .footer-content {
@@ -803,7 +846,7 @@
             <ul>
                 <li><a href="#info" class="nav-link">ИНФОРМАЦИЯ</a></li>
                 <li><a href="#news" class="nav-link">НОВОСТИ</a></li>
-                <li><a href="#leader" class="nav-link">ЛИДЕР</a></li>
+                <li><a href="#leaders" class="nav-link">ГЛАВЫ</a></li>
                 <li><a href="#service" class="nav-link">СЛУЖБА</a></li>
                 <li><a href="#constitution" class="nav-link">КОНСТИТУЦИЯ</a></li>
                 <li><a href="#registry" class="nav-link">РЕЕСТР</a></li>
@@ -871,12 +914,36 @@
                 </div>
             </section>
 
-            <section id="leader" class="section">
-                <h2 class="section-title">ЛИДЕР</h2>
-                <div class="leader-section">
-                    <img src="images/ken-poster.png" alt="Кен Флиш" class="leader-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSIxMDAiIHk9IjEwMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+S0VOIEZMSVNIPC90ZXh0Pjwvc3ZnPg=='>
-                    <div class="leader-name">Кен Флиш</div>
-                    <div class="leader-title">Великий Правитель, Отец, Основоположник и руководитель Великого Государства Кендрессии</div>
+            <!-- Раздел: Главы государства (3 карточки) -->
+            <section id="leaders" class="section">
+                <h2 class="section-title">ГЛАВЫ ГОСУДАРСТВА</h2>
+                <div class="leaders-grid">
+                    <!-- Кен Флиш Сигмославович -->
+                    <div class="leader-card">
+                        <div class="image-container">
+                            <img src="images/1chel.png" alt="Кен Флиш" class="leader-card-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE1MCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSI3NSIgeT0iNzUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjFjaGVsPC90ZXh0Pjwvc3ZnPg=='>
+                        </div>
+                        <div class="leader-card-name">Кен Флиш Сигмославович</div>
+                        <div class="leader-card-title">Главный и единственный правитель<br>Управляющий Военно-диверсионного корпуса армии СПБ<br>Министр КенПросвещения</div>
+                    </div>
+
+                    <!-- Л. Д. Дундуков -->
+                    <div class="leader-card">
+                        <div class="image-container">
+                            <img src="images/2chel.png" alt="Л. Д. Дундуков" class="leader-card-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE1MCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSI3NSIgeT0iNzUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjJjaGVsPC90ZXh0Pjwvc3ZnPg=='>
+                        </div>
+                        <div class="leader-card-name">Л. Д. Дундуков</div>
+                        <div class="leader-card-title">Министр Обороны</div>
+                    </div>
+
+                    <!-- Ж. Супер Пиздабол -->
+                    <div class="leader-card">
+                        <div class="image-container">
+                            <img src="images/3chel.png" alt="Ж. Супер Пиздабол" class="leader-card-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE1MCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSI3NSIgeT0iNzUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjNjaGVsPC90ZXh0Pjwvc3ZnPg=='>
+                        </div>
+                        <div class="leader-card-name">Ж. Супер Пиздабол</div>
+                        <div class="leader-card-title">Глава иностранных дел</div>
+                    </div>
                 </div>
             </section>
 
