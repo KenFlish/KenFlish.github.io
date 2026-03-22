@@ -156,7 +156,7 @@
             margin: 30px 0;
         }
 
-        .doc-button {
+        .action-btn {
             background: var(--gos-red);
             color: white;
             border: none;
@@ -170,8 +170,33 @@
             box-shadow: 0 6px 12px rgba(0,0,0,0.1);
         }
 
-        .doc-button:hover {
+        .action-btn:hover {
             transform: scale(1.05);
+            background: var(--gos-blue);
+            border-color: var(--gos-red);
+        }
+
+        .contact-section-btn {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .contact-btn {
+            background: var(--gos-red);
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            font-size: 1.3em;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid var(--gos-blue);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.03);
             background: var(--gos-blue);
             border-color: var(--gos-red);
         }
@@ -225,13 +250,40 @@
         }
 
         .modal-text {
-            font-size: 1.2em;
+            font-size: 1.1em;
             line-height: 1.6;
             margin: 20px 0;
         }
 
         .modal-text strong {
             color: var(--gos-red);
+        }
+
+        .bot-link {
+            display: inline-block;
+            background: var(--gos-light-blue);
+            color: var(--gos-blue);
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px 0;
+            border: 1px solid var(--gos-blue);
+            transition: all 0.3s;
+        }
+
+        .bot-link:hover {
+            background: var(--gos-blue);
+            color: white;
+        }
+
+        .instruction-list {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .instruction-list li {
+            margin: 10px 0;
         }
 
         .section {
@@ -471,18 +523,14 @@
             text-align: right;
         }
 
-        /* Секция службы */
+        /* Секция службы (без анкеты) */
         .service-section {
             background: linear-gradient(135deg, var(--gos-light-blue) 0%, var(--gos-light-red) 100%);
             border-radius: 20px;
             padding: 40px;
             border: 2px solid var(--gos-blue);
             width: 100%;
-        }
-
-        .service-header {
             text-align: center;
-            margin-bottom: 30px;
         }
 
         .service-image {
@@ -502,93 +550,6 @@
             margin: 20px 0;
             text-transform: uppercase;
             letter-spacing: 2px;
-        }
-
-        .application-form {
-            max-width: 600px;
-            margin: 30px auto 0;
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            border: 2px solid var(--gos-blue);
-        }
-
-        .form-title {
-            color: var(--gos-blue);
-            font-size: 1.8em;
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 10px;
-            color: var(--gos-blue);
-            font-weight: 600;
-            font-size: 1.1em;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 15px 20px;
-            border: 2px solid var(--border-color);
-            border-radius: 10px;
-            font-size: 1.1em;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--gos-red);
-        }
-
-        .submit-btn {
-            background: var(--gos-red);
-            color: white;
-            border: none;
-            padding: 18px 30px;
-            font-size: 1.4em;
-            font-weight: 700;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: 2px solid var(--gos-blue);
-            width: 100%;
-        }
-
-        .submit-btn:hover {
-            background: var(--gos-blue);
-            border-color: var(--gos-red);
-            transform: scale(1.02);
-        }
-
-        /* Кнопка продолжения */
-        .continue-btn {
-            background: var(--gos-blue);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.3em;
-            font-weight: 700;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: 2px solid var(--gos-red);
-            width: 100%;
-            margin-top: 20px;
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-        }
-
-        .continue-btn:hover {
-            background: var(--gos-red);
-            border-color: var(--gos-blue);
-            transform: scale(1.02);
         }
 
         .registry-list {
@@ -848,40 +809,36 @@
                 <li><a href="#news" class="nav-link">НОВОСТИ</a></li>
                 <li><a href="#leaders" class="nav-link">ГЛАВЫ</a></li>
                 <li><a href="#service" class="nav-link">СЛУЖБА</a></li>
+                <li><a href="#contact" class="nav-link">КОНТАКТ</a></li>
                 <li><a href="#constitution" class="nav-link">КОНСТИТУЦИЯ</a></li>
                 <li><a href="#registry" class="nav-link">РЕЕСТР</a></li>
             </ul>
         </nav>
 
         <div class="container">
+            <!-- Кнопка ПОДАТЬ ДОКУМЕНТЫ в самом начале -->
             <div class="action-button">
-                <button class="doc-button" onclick="openModal()">📄 ПОДАТЬ ДОКУМЕНТЫ</button>
+                <button class="action-btn" onclick="openCitizenshipModal()">📄 ПОДАТЬ ДОКУМЕНТЫ</button>
             </div>
 
-            <!-- Модальное окно для гражданства -->
-            <div class="modal" id="docModal" onclick="closeModal(event)">
+            <!-- Модальное окно для ПОЛУЧЕНИЯ ГРАЖДАНСТВА -->
+            <div class="modal" id="citizenshipModal" onclick="closeCitizenshipModal(event)">
                 <div class="modal-content" onclick="event.stopPropagation()">
-                    <span class="modal-close" onclick="closeModal()">&times;</span>
-                    <h2 class="modal-title">Получение гражданства</h2>
+                    <span class="modal-close" onclick="closeCitizenshipModal()">&times;</span>
+                    <h2 class="modal-title">📜 ПОЛУЧЕНИЕ ГРАЖДАНСТВА</h2>
                     <div class="modal-text">
-                        <p>Для получения гражданства Кендрессии, обратитесь в чат с представителем власти.</p>
-                        <p style="margin-top: 20px;"><strong>Процедура:</strong></p>
-                        <ul style="margin-left: 20px; margin-top: 10px;">
-                            <li>Напишите в общий чат сервера</li>
-                            <li>Упомяните @Кен или любого модератора</li>
-                            <li>Ожидайте ответа от представителя власти</li>
+                        <p>Для получения гражданства Кендрессии необходимо:</p>
+                        <ul class="instruction-list">
+                            <li>Написать боту <strong>@ken_amethyst_bot</strong></li>
+                            <li>Указать свой ник в Minecraft</li>
+                            <li>Указать возраст и город проживания</li>
+                            <li>Дождаться ответа от представителя власти</li>
                         </ul>
+                        <div style="text-align: center; margin: 15px 0;">
+                            <a href="https://t.me/ken_amethyst_bot" target="_blank" class="bot-link">🤖 Написать боту @ken_amethyst_bot</a>
+                        </div>
+                        <p style="font-size: 0.9em; color: #666;">После проверки данных вам будет выдано гражданство.</p>
                     </div>
-                </div>
-            </div>
-
-            <!-- Модальное окно для повестки -->
-            <div class="modal" id="povestkaModal" onclick="closePovestkaModal(event)">
-                <div class="modal-content" onclick="event.stopPropagation()">
-                    <span class="modal-close" onclick="closePovestkaModal()">&times;</span>
-                    <h2 class="modal-title">⚡ ПОВЕСТКА ⚡</h2>
-                    <div class="modal-text" id="povestkaText"></div>
-                    <a href="https://contract.gosuslugi.ru/" target="_blank" class="continue-btn">ПРОДОЛЖИТЬ</a>
                 </div>
             </div>
 
@@ -892,7 +849,7 @@
                         <h3>Кендрессия</h3>
                         <ul>
                             <li><strong>Царь Кендрессии:</strong> Кен Флиш</li>
-                            <li><strong>Форма правления:</strong> Диктатура</li>
+                            <li><strong>Форма правления:</strong> Монархия</li>
                             <li><strong>Дата основания:</strong> С момента создания AmethystSMP</li>
                         </ul>
                     </div>
@@ -914,7 +871,7 @@
                 </div>
             </section>
 
-            <!-- Раздел: Главы государства (3 карточки) -->
+            <!-- Раздел: Главы государства -->
             <section id="leaders" class="section">
                 <h2 class="section-title">ГЛАВЫ ГОСУДАРСТВА</h2>
                 <div class="leaders-grid">
@@ -947,35 +904,44 @@
                 </div>
             </section>
 
-            <!-- Секция СЛУЖБА -->
+            <!-- Секция СЛУЖБА (без анкеты, только фото и текст) -->
             <section id="service" class="section">
                 <h2 class="section-title">СЛУЖБА ПО КОНТРАКТУ</h2>
                 <div class="service-section">
-                    <div class="service-header">
-                        <img src="images/service-photo.png" alt="Служба в СПБ" class="service-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSIyNTAiIHk9IjE1MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+0KHQu9GD0LbQsdCwINCyINCh0J/QkdC70LDRhdCw0YHRgtC4PC90ZXh0Pjwvc3ZnPg=='>
-                        <div class="service-text">СЛУЖИ В СПБ</div>
-                    </div>
-
-                    <div class="application-form">
-                        <h3 class="form-title">Запись на службу</h3>
-                        <form id="serviceForm">
-                            <div class="form-group">
-                                <label for="name">Имя</label>
-                                <input type="text" id="name" placeholder="Введите ваше имя" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="age">Возраст</label>
-                                <input type="number" id="age" placeholder="Введите ваш возраст" min="14" max="100" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="telegram">Telegram</label>
-                                <input type="text" id="telegram" placeholder="@username" required>
-                            </div>
-                            <button type="submit" class="submit-btn">ЗАПИСАТЬСЯ</button>
-                        </form>
-                    </div>
+                    <img src="images/service-photo.png" alt="Служба в СПБ" class="service-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSIyNTAiIHk9IjE1MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+0KHQu9GD0LbQsdCwINCyINCh0J/QkdC70LDRhdCw0YHRgtC4PC90ZXh0Pjwvc3ZnPg=='>
+                    <div class="service-text">СЛУЖИ В СПБ</div>
                 </div>
             </section>
+
+            <!-- Секция КОНТАКТ (отдельная) -->
+            <section id="contact" class="section">
+                <h2 class="section-title">СВЯЗЬ С АДМИНИСТРАЦИЕЙ</h2>
+                <div style="text-align: center;">
+                    <p style="margin-bottom: 20px;">Для связи с администрацией Кендрессии нажмите на кнопку ниже</p>
+                    <button class="contact-btn" onclick="openServiceModal()">📞 КОНТАКТ</button>
+                </div>
+            </section>
+
+            <!-- Модальное окно для КОНТАКТА (Служба в СПБ) -->
+            <div class="modal" id="serviceModal" onclick="closeServiceModal(event)">
+                <div class="modal-content" onclick="event.stopPropagation()">
+                    <span class="modal-close" onclick="closeServiceModal()">&times;</span>
+                    <h2 class="modal-title">⚔️ СЛУЖБА В СПБ</h2>
+                    <div class="modal-text">
+                        <p>Для записи на военную службу по контракту:</p>
+                        <ul class="instruction-list">
+                            <li>Напишите боту <strong>@ken_amethyst_bot</strong></li>
+                            <li>Укажите ФИО, возраст и наличие военного билета</li>
+                            <li>Укажите желаемую должность</li>
+                            <li>Дождитесь ответа от военного комиссара</li>
+                        </ul>
+                        <div style="text-align: center; margin: 15px 0;">
+                            <a href="https://t.me/ken_amethyst_bot" target="_blank" class="bot-link">🤖 Написать боту @ken_amethyst_bot</a>
+                        </div>
+                        <p style="font-size: 0.9em; color: #666;">После рассмотрения заявки вам будет назначена дата прибытия.</p>
+                    </div>
+                </div>
+            </div>
 
             <section id="constitution" class="section">
                 <h2 class="section-title">КОНСТИТУЦИЯ И ЗАКОНЫ</h2>
@@ -1352,37 +1318,23 @@
             });
         }
 
-        function openModal() {
-            document.getElementById('docModal').classList.add('active');
+        function openCitizenshipModal() {
+            document.getElementById('citizenshipModal').classList.add('active');
         }
 
-        function closeModal(e) {
+        function closeCitizenshipModal(e) {
             if (!e || e.target.classList.contains('modal') || e.target.classList.contains('modal-close')) {
-                document.getElementById('docModal').classList.remove('active');
+                document.getElementById('citizenshipModal').classList.remove('active');
             }
         }
 
-        function openPovestkaModal(name, age, telegram) {
-            const modal = document.getElementById('povestkaModal');
-            const textElement = document.getElementById('povestkaText');
-            
-            const currentDate = new Date().toLocaleDateString('ru-RU');
-            textElement.innerHTML = `
-                <p><strong>Поздравляем, ${name} (${age} лет, ${telegram})!</strong></p>
-                <p>Вы успешно записаны на военную службу по контракту.</p>
-                <p>Для выполнения контракта необходимо явиться в ближайший военкомат РФ в течение 3 дней.</p>
-                <p>При себе иметь: паспорт, военный билет, телефон.</p>
-                <p style="margin-top: 20px;"><strong>Подпись:</strong> Военный комиссариат РФ</p>
-                <p><strong>Дата:</strong> ${currentDate}</p>
-                <p style="margin-top: 15px; font-size: 1.2em; color: var(--gos-red);">🇷🇺 Служба - долг и честь! 🇷🇺</p>
-            `;
-            
-            modal.classList.add('active');
+        function openServiceModal() {
+            document.getElementById('serviceModal').classList.add('active');
         }
 
-        function closePovestkaModal(e) {
+        function closeServiceModal(e) {
             if (!e || e.target.classList.contains('modal') || e.target.classList.contains('modal-close')) {
-                document.getElementById('povestkaModal').classList.remove('active');
+                document.getElementById('serviceModal').classList.remove('active');
             }
         }
 
@@ -1396,26 +1348,10 @@
             }, 3000);
         }
 
-        // Обработка формы службы
         document.addEventListener('DOMContentLoaded', () => {
             createCarousel();
             setupCarouselScroll();
             setupActiveNav();
-
-            const form = document.getElementById('serviceForm');
-            if (form) {
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    
-                    const name = document.getElementById('name').value;
-                    const age = document.getElementById('age').value;
-                    const telegram = document.getElementById('telegram').value;
-                    
-                    openPovestkaModal(name, age, telegram);
-                    
-                    form.reset();
-                });
-            }
         });
     </script>
 </body>
