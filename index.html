@@ -714,6 +714,39 @@
             margin-bottom: 10px;
         }
 
+        /* Стиль для гифки в конце */
+        .gif-section {
+            text-align: center;
+            margin: 50px 0 20px;
+            padding: 20px;
+            background: rgba(25, 62, 239, 0.05);
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gif-section .lol-gif {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border: 3px solid var(--gos-red);
+            transition: transform 0.3s ease;
+            background: white;
+        }
+        
+        .gif-section .lol-gif:hover {
+            transform: scale(1.02);
+            border-color: var(--gos-blue);
+        }
+        
+        .gif-caption {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--gos-blue);
+            letter-spacing: 1px;
+        }
+
         footer {
             background: var(--gos-blue);
             color: white;
@@ -1181,6 +1214,13 @@
                     </div>
                 </div>
             </section>
+            
+            <!-- +++ ГИФКА В КОНЦЕ КОНТЕЙНЕРА +++ -->
+            <div class="gif-section">
+                <img src="images/lol.gif" alt="lol анимация" class="lol-gif" onerror="this.style.display='none'">
+                <div class="gif-caption">⚡ Кендрессия — сила, честь, LOL! ⚡</div>
+            </div>
+            <!-- КОНЕЦ ГИФКИ -->
         </div>
 
         <footer>
