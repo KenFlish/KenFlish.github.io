@@ -567,9 +567,42 @@
             transition: all 0.2s;
         }
 
+        .person-card-with-image {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+        }
+
+        .registry-avatar {
+            width: 96px;
+            height: 96px;
+            border-radius: 18px;
+            object-fit: cover;
+            border: 2px solid var(--gos-blue);
+            background: white;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        .person-card-content {
+            flex: 1;
+            min-width: 0;
+        }
+
         .person-card:hover {
             transform: translateX(5px);
             box-shadow: 0 4px 12px rgba(218, 23, 72, 0.2);
+        }
+
+        @media (max-width: 640px) {
+            .person-card-with-image {
+                flex-direction: column;
+            }
+
+            .registry-avatar {
+                width: 84px;
+                height: 84px;
+            }
         }
 
         .card-header {
@@ -926,13 +959,31 @@
                         <div class="leader-card-title">Министр Обороны</div>
                     </div>
 
-                    <!-- Ж. Супер Пиздабол -->
+                    <!-- Владимера В. В. -->
                     <div class="leader-card">
                         <div class="image-container">
-                            <img src="images/3chel.png" alt="Ж. Супер Пиздабол" class="leader-card-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE1MCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSI3NSIgeT0iNzUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjNjaGVsPC90ZXh0Pjwvc3ZnPg=='>
+                            <img src="images/vladimera-v-v.png" alt="Владимера В. В." class="leader-card-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE1MCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSI3NSIgeT0iNzUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPnZ2djwvdGV4dD48L3N2Zz4='">
                         </div>
-                        <div class="leader-card-name">Ж. Супер Пиздабол</div>
+                        <div class="leader-card-name">Владимера В. В.</div>
                         <div class="leader-card-title">Глава иностранных дел</div>
+                    </div>
+
+                    <!-- Дракона С. С. -->
+                    <div class="leader-card">
+                        <div class="image-container">
+                            <img src="images/drakona-s-s.png" alt="Дракона С. С." class="leader-card-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE1MCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSI3NSIgeT0iNzUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPmRyczwvdGV4dD48L3N2Zz4='">
+                        </div>
+                        <div class="leader-card-name">Дракона С. С.</div>
+                        <div class="leader-card-title">Заместитель по особым государственным поручениям</div>
+                    </div>
+
+                    <!-- Ватерфлейн К. К. -->
+                    <div class="leader-card">
+                        <div class="image-container">
+                            <img src="images/vaterfleyn-k-k.png" alt="Ватерфлейн К. К." class="leader-card-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE1MCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSI3NSIgeT0iNzUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPndmazwvdGV4dD48L3N2Zz4='">
+                        </div>
+                        <div class="leader-card-name">Ватерфлейн К. К.</div>
+                        <div class="leader-card-title">Государственный советник по внешним связям</div>
                     </div>
                 </div>
             </section>
@@ -1200,6 +1251,146 @@
                         <div class="person-detail"><strong>Причина:</strong> Многочисленные нарушения правил, клевета и критика правительства</div>
                         <div class="person-detail"><strong>Статус:</strong> Объявлен в розыск</div>
                         <div class="person-detail"><strong>Дата внесения:</strong> Не зафиксирована</div>
+                    </div>
+
+                    <div class="person-card person-card-with-image">
+                        <img src="images/chat-bydlo.png" alt="Быдло" class="registry-avatar">
+                        <div class="person-card-content">
+                            <div class="card-header">
+                                <span class="status status-wanted">В РЕЕСТРЕ</span>
+                                <span class="category">Иностранный агент</span>
+                            </div>
+                            <div class="person-name">❗️Быдло❗️</div>
+                            <div class="person-detail"><strong>Причина:</strong> Подозрительная активность в иностранном чате и влияние на общественное мнение</div>
+                            <div class="person-detail"><strong>Статус:</strong> Внесён в реестр иноагентов</div>
+                            <div class="person-detail"><strong>Дата внесения:</strong> 16.08.2026</div>
+                        </div>
+                    </div>
+
+                    <div class="person-card person-card-with-image">
+                        <img src="images/chat-ferya.png" alt="Ferya" class="registry-avatar">
+                        <div class="person-card-content">
+                            <div class="card-header">
+                                <span class="status status-wanted">В РЕЕСТРЕ</span>
+                                <span class="category">Иностранный агент</span>
+                            </div>
+                            <div class="person-name">❗️Ferya❗️</div>
+                            <div class="person-detail"><strong>Причина:</strong> Замечен в среде иностранных агентов и подозревается в распространении стороннего влияния</div>
+                            <div class="person-detail"><strong>Статус:</strong> Внесён в реестр иноагентов</div>
+                            <div class="person-detail"><strong>Дата внесения:</strong> 16.08.2026</div>
+                        </div>
+                    </div>
+
+                    <div class="person-card person-card-with-image">
+                        <img src="images/chat-ilya322.png" alt="Илья322" class="registry-avatar">
+                        <div class="person-card-content">
+                            <div class="card-header">
+                                <span class="status status-wanted">В РЕЕСТРЕ</span>
+                                <span class="category">Иностранный агент</span>
+                            </div>
+                            <div class="person-name">❗️Илья322🐋❗️</div>
+                            <div class="person-detail"><strong>Причина:</strong> Подозревается в координации сомнительной деятельности через иностранные коммуникации</div>
+                            <div class="person-detail"><strong>Статус:</strong> Внесён в реестр иноагентов</div>
+                            <div class="person-detail"><strong>Дата внесения:</strong> 16.08.2026</div>
+                        </div>
+                    </div>
+
+                    <div class="person-card person-card-with-image">
+                        <img src="images/chat-nicolas-maduro.png" alt="Николас Мадуро" class="registry-avatar">
+                        <div class="person-card-content">
+                            <div class="card-header">
+                                <span class="status status-wanted">В РЕЕСТРЕ</span>
+                                <span class="category">Иностранный агент</span>
+                            </div>
+                            <div class="person-name">❗️Николас Мадуро❗️</div>
+                            <div class="person-detail"><strong>Причина:</strong> Иностранное политическое влияние и участие в подозрительных обсуждениях</div>
+                            <div class="person-detail"><strong>Статус:</strong> Внесён в реестр иноагентов</div>
+                            <div class="person-detail"><strong>Дата внесения:</strong> 16.08.2026</div>
+                        </div>
+                    </div>
+
+                    <div class="person-card person-card-with-image">
+                        <img src="images/chat-nagichit.png" alt="NAGICHIT" class="registry-avatar">
+                        <div class="person-card-content">
+                            <div class="card-header">
+                                <span class="status status-wanted">В РЕЕСТРЕ</span>
+                                <span class="category">Иностранный агент</span>
+                            </div>
+                            <div class="person-name">❗️NAGICHIT❗️</div>
+                            <div class="person-detail"><strong>Причина:</strong> Фигурант наблюдения за внешним информационным влиянием</div>
+                            <div class="person-detail"><strong>Статус:</strong> Внесён в реестр иноагентов</div>
+                            <div class="person-detail"><strong>Дата внесения:</strong> 16.08.2026</div>
+                        </div>
+                    </div>
+
+                    <div class="person-card person-card-with-image">
+                        <img src="images/chat-chak-chak.png" alt="Чак-чак." class="registry-avatar">
+                        <div class="person-card-content">
+                            <div class="card-header">
+                                <span class="status status-wanted">В РЕЕСТРЕ</span>
+                                <span class="category">Иностранный агент</span>
+                            </div>
+                            <div class="person-name">❗️Чак-чак.❗️</div>
+                            <div class="person-detail"><strong>Причина:</strong> Подозрительные контакты с внешними участниками и распространение сомнительных сведений</div>
+                            <div class="person-detail"><strong>Статус:</strong> Внесён в реестр иноагентов</div>
+                            <div class="person-detail"><strong>Дата внесения:</strong> 16.08.2026</div>
+                        </div>
+                    </div>
+
+                    <div class="person-card person-card-with-image">
+                        <img src="images/chat-neromant-ifani.png" alt="Neromant IFANI" class="registry-avatar">
+                        <div class="person-card-content">
+                            <div class="card-header">
+                                <span class="status status-wanted">В РЕЕСТРЕ</span>
+                                <span class="category">Иностранный агент</span>
+                            </div>
+                            <div class="person-name">❗️Neromant IFANI❗️</div>
+                            <div class="person-detail"><strong>Причина:</strong> Привлёк внимание органов как носитель внешнего информационного влияния</div>
+                            <div class="person-detail"><strong>Статус:</strong> Внесён в реестр иноагентов</div>
+                            <div class="person-detail"><strong>Дата внесения:</strong> 16.08.2026</div>
+                        </div>
+                    </div>
+
+                    <div class="person-card person-card-with-image">
+                        <img src="images/chat-goldix.png" alt="g[di]x·гøldикс" class="registry-avatar">
+                        <div class="person-card-content">
+                            <div class="card-header">
+                                <span class="status status-wanted">В РЕЕСТРЕ</span>
+                                <span class="category">Иностранный агент</span>
+                            </div>
+                            <div class="person-name">❗️g[di]x·гøldикс❗️</div>
+                            <div class="person-detail"><strong>Причина:</strong> Участие в подозрительных чат-активностях и вероятное внешнее кураторство</div>
+                            <div class="person-detail"><strong>Статус:</strong> Внесён в реестр иноагентов</div>
+                            <div class="person-detail"><strong>Дата внесения:</strong> 16.08.2026</div>
+                        </div>
+                    </div>
+
+                    <div class="person-card person-card-with-image">
+                        <img src="images/chat-lyova.png" alt="Лёва" class="registry-avatar">
+                        <div class="person-card-content">
+                            <div class="card-header">
+                                <span class="status status-wanted">В РЕЕСТРЕ</span>
+                                <span class="category">Иностранный агент</span>
+                            </div>
+                            <div class="person-name">❗️Лёва❗️</div>
+                            <div class="person-detail"><strong>Причина:</strong> Включён в наблюдение за иностранным влиянием на государственные интересы</div>
+                            <div class="person-detail"><strong>Статус:</strong> Внесён в реестр иноагентов</div>
+                            <div class="person-detail"><strong>Дата внесения:</strong> 16.08.2026</div>
+                        </div>
+                    </div>
+
+                    <div class="person-card person-card-with-image">
+                        <img src="images/chat-fakis.png" alt="Факис" class="registry-avatar">
+                        <div class="person-card-content">
+                            <div class="card-header">
+                                <span class="status status-wanted">В РЕЕСТРЕ</span>
+                                <span class="category">Иностранный агент</span>
+                            </div>
+                            <div class="person-name">❗️Факис🍐❗️</div>
+                            <div class="person-detail"><strong>Причина:</strong> Подозревается в внешнем влиянии и сомнительной сетевой активности</div>
+                            <div class="person-detail"><strong>Статус:</strong> Внесён в реестр иноагентов</div>
+                            <div class="person-detail"><strong>Дата внесения:</strong> 16.08.2026</div>
+                        </div>
                     </div>
 
                     <div class="person-card">
