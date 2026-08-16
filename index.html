@@ -366,6 +366,17 @@
             width: 100%;
         }
 
+        .leaders-divider {
+            width: 100%;
+            height: 2px;
+            margin: 34px 0 4px;
+            background: linear-gradient(90deg, transparent, var(--gos-red), transparent);
+        }
+
+        .leaders-grid-lower {
+            margin-top: 20px;
+        }
+
         @media (max-width: 768px) {
             .leaders-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -425,28 +436,38 @@
 
         .news-container {
             width: 100%;
-            min-height: 500px;
-            height: auto;
-            overflow: hidden;
+            min-height: 0;
+            position: relative;
             border: 2px solid var(--gos-blue);
             border-radius: 16px;
             background: var(--gos-light-blue);
+            padding: 24px 72px;
         }
 
         .news-carousel {
             display: flex;
             gap: 25px;
-            padding: 30px;
-            min-height: 100%;
+            padding: 4px 0 14px;
             overflow-x: auto;
             overflow-y: hidden;
             scroll-behavior: smooth;
             align-items: stretch;
-            scrollbar-width: none;
+            scroll-snap-type: x mandatory;
+            scrollbar-color: var(--gos-blue) transparent;
+            scrollbar-width: thin;
         }
 
         .news-carousel::-webkit-scrollbar {
-            display: none;
+            height: 8px;
+        }
+
+        .news-carousel::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .news-carousel::-webkit-scrollbar-thumb {
+            background: var(--gos-blue);
+            border-radius: 20px;
         }
 
         .news-slide {
@@ -461,7 +482,8 @@
             flex-shrink: 0;
             display: flex;
             flex-direction: column;
-            height: fit-content;
+            min-height: 100%;
+            scroll-snap-align: start;
         }
 
         .news-slide:hover {
@@ -515,6 +537,32 @@
             word-wrap: break-word;
         }
 
+        .news-control {
+            position: absolute;
+            top: 50%;
+            z-index: 2;
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--gos-blue);
+            border-radius: 50%;
+            background: white;
+            color: var(--gos-blue);
+            font-size: 1.5rem;
+            line-height: 1;
+            cursor: pointer;
+            transform: translateY(-50%);
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+
+        .news-control:hover {
+            background: var(--gos-blue);
+            color: white;
+            transform: translateY(-50%) scale(1.06);
+        }
+
+        .news-control-prev { left: 16px; }
+        .news-control-next { right: 16px; }
+
         .amethyst-tag {
             color: var(--amethyst-light);
             font-weight: 600;
@@ -567,25 +615,11 @@
             transition: all 0.2s;
         }
 
-        .person-card-with-image {
-            display: flex;
-            gap: 18px;
-            align-items: flex-start;
-        }
-
         .registry-avatar {
-            width: 96px;
-            height: 96px;
-            border-radius: 18px;
-            object-fit: cover;
-            border: 2px solid var(--gos-blue);
-            background: white;
-            flex-shrink: 0;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            display: none;
         }
 
         .person-card-content {
-            flex: 1;
             min-width: 0;
         }
 
@@ -595,13 +629,13 @@
         }
 
         @media (max-width: 640px) {
-            .person-card-with-image {
-                flex-direction: column;
+            .news-container {
+                padding: 20px 48px;
             }
 
-            .registry-avatar {
-                width: 84px;
-                height: 84px;
+            .news-slide {
+                min-width: min(350px, 78vw);
+                width: min(350px, 78vw);
             }
         }
 
@@ -959,22 +993,26 @@
                         <div class="leader-card-title">Министр Обороны</div>
                     </div>
 
-                    <!-- Владимера В. В. -->
+                </div>
+                <div class="leaders-divider" aria-hidden="true"></div>
+                <div class="leaders-grid leaders-grid-lower">
+
+                    <!-- Владимер В. В. -->
                     <div class="leader-card">
                         <div class="image-container">
                             <img src="images/vladimera-v-v.png" alt="Владимера В. В." class="leader-card-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE1MCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSI3NSIgeT0iNzUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPnZ2djwvdGV4dD48L3N2Zz4='">
                         </div>
-                        <div class="leader-card-name">Владимера В. В.</div>
+                        <div class="leader-card-name">Владимер В. В.</div>
                         <div class="leader-card-title">Глава иностранных дел</div>
                     </div>
 
-                    <!-- Дракона С. С. -->
+                    <!-- Дракон С. Е. -->
                     <div class="leader-card">
                         <div class="image-container">
                             <img src="images/drakona-s-s.png" alt="Дракона С. С." class="leader-card-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE1MCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSI3NSIgeT0iNzUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPmRyczwvdGV4dD48L3N2Zz4='">
                         </div>
-                        <div class="leader-card-name">Дракона С. С.</div>
-                        <div class="leader-card-title">Заместитель по особым государственным поручениям</div>
+                        <div class="leader-card-name">Дракон С. Е.</div>
+                        <div class="leader-card-title">Глава КЗС по внутренним делам</div>
                     </div>
 
                     <!-- Ватерфлейн К. К. -->
@@ -983,7 +1021,7 @@
                             <img src="images/vaterfleyn-k-k.png" alt="Ватерфлейн К. К." class="leader-card-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE1MCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiMxOTZFRkYiLz48dGV4dCB4PSI3NSIgeT0iNzUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPndmazwvdGV4dD48L3N2Zz4='">
                         </div>
                         <div class="leader-card-name">Ватерфлейн К. К.</div>
-                        <div class="leader-card-title">Государственный советник по внешним связям</div>
+                        <div class="leader-card-title">Глава КЗС по Военной обороне</div>
                     </div>
                 </div>
             </section>
@@ -1475,7 +1513,7 @@
             const carousel = document.getElementById('newsCarousel');
             if (!carousel) return;
 
-            for (let i = 0; i < 3; i++) {
+            for (let copy = 0; copy < 3; copy++) {
                 newsData.forEach(news => {
                     const slide = document.createElement('div');
                     slide.className = 'news-slide';
@@ -1504,25 +1542,32 @@
             container.addEventListener('wheel', (e) => {
                 if (e.deltaY !== 0) {
                     e.preventDefault();
-                    carousel.scrollLeft += e.deltaY;
+                    carousel.scrollBy({ left: e.deltaY, behavior: 'smooth' });
                 }
             });
 
+            const resetPoint = carousel.scrollWidth / 3;
             carousel.addEventListener('scroll', () => {
-                const scrollWidth = carousel.scrollWidth;
-                const clientWidth = carousel.clientWidth;
-                const scrollLeft = carousel.scrollLeft;
-
-                if (scrollLeft >= scrollWidth - clientWidth * 2) {
-                    carousel.scrollLeft = scrollWidth / 3;
-                } else if (scrollLeft <= 0) {
-                    carousel.scrollLeft = scrollWidth / 3 * 2 - clientWidth;
+                const leftEdge = resetPoint * 0.35;
+                const rightEdge = resetPoint * 1.65;
+                if (carousel.scrollLeft < leftEdge) {
+                    carousel.scrollLeft += resetPoint;
+                } else if (carousel.scrollLeft > rightEdge) {
+                    carousel.scrollLeft -= resetPoint;
                 }
             });
 
-            setTimeout(() => {
-                carousel.scrollLeft = carousel.scrollWidth / 3;
-            }, 100);
+            requestAnimationFrame(() => {
+                carousel.scrollLeft = resetPoint;
+            });
+        }
+
+        function moveVladimerToTop() {
+            const upper = document.querySelector('#leaders .leaders-grid:not(.leaders-grid-lower)');
+            const lower = document.querySelector('#leaders .leaders-grid-lower');
+            if (upper && lower && lower.firstElementChild) {
+                upper.appendChild(lower.firstElementChild);
+            }
         }
 
         function setupActiveNav() {
@@ -1579,10 +1624,16 @@
             }, 3000);
         }
 
+        function removeRegistryImages() {
+            document.querySelectorAll('#registry .registry-avatar').forEach(image => image.remove());
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             createCarousel();
             setupCarouselScroll();
             setupActiveNav();
+            removeRegistryImages();
+            moveVladimerToTop();
         });
     </script>
 </body>
